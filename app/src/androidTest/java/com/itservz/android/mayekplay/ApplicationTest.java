@@ -1,4 +1,4 @@
-package com.itservz.android.mayekplay.mayekplay;
+package com.itservz.android.mayekplay;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

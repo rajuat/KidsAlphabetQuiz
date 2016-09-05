@@ -5,36 +5,32 @@
     android:orientation="vertical">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@android:drawable/toast_frame"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
         android:text="111111"
         android:id="@+id/prep41"
         android:onClick="answered"
         />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@android:drawable/toast_frame"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
         android:text="111111"
         android:id="@+id/prep42"
         android:onClick="answered"
         />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@android:drawable/toast_frame"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
         android:text="111111"
         android:id="@+id/prep43"
         android:onClick="answered"
         />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@android:drawable/toast_frame"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
         android:text="111111"
         android:id="@+id/prep44"
         android:onClick="answered"

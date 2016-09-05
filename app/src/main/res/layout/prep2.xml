@@ -5,21 +5,21 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
         android:text="111111"
         android:id="@+id/prep21"
-        android:src="@android:drawable/toast_frame"
         android:onClick="answered"
         />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
         android:text="111111"
         android:id="@+id/prep22"
-        android:src="@android:drawable/toast_frame"
         android:onClick="answered"
         />
+
+
 
 </LinearLayout>

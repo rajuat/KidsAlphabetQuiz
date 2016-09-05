@@ -1,43 +1,53 @@
 package com.itservz.android.mayekplay.prep;
 
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ViewFlipper;
 
 import com.itservz.android.mayekplay.R;
+import com.itservz.android.mayekplay.ViewBuilder;
 
 public class PrepActivity extends AppCompatActivity {
 
     private ViewFlipper viewFlipper;
     private View currentView;
-    private String CORRECT_ANSWER = "correct_answer";
+    public static String CORRECT_ANSWER = "correct_answer";
     private boolean CORRECT_ANSWER_SELECTED = false;
+    private int viewIndex = 0;
+    private ImageView soundButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prep);
 
+        viewIndex = 0;
         viewFlipper = (ViewFlipper) findViewById(R.id.prepFlipper);
 
-        View view2 = LayoutInflater.from(this).inflate(R.layout.prep2, null);
-        viewFlipper.addView(view2);
+        ViewBuilder viewBuilder = new ViewBuilder();
+        viewBuilder.setViewsToFlipper(this, viewFlipper);
+        currentView = viewBuilder.getView(viewIndex);
 
-        View view3 = LayoutInflater.from(this).inflate(R.layout.prep3, null);
-        viewFlipper.addView(view3);
-
-        View view4 = LayoutInflater.from(this).inflate(R.layout.prep4, null);
-        viewFlipper.addView(view4);
+        viewBuilder.build(viewIndex);
+        final int sound = viewBuilder.getSound();
 
         viewFlipper.setDisplayedChild(viewFlipper.indexOfChild(currentView));
 
-        View view21 = view2.findViewById(R.id.prep21);
-        view21.setBackgroundResource(R.drawable.pic);
-        view21.setTag(CORRECT_ANSWER);
+        soundButton = (ImageView) findViewById(R.id.sound_btn);
+        soundButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SoundPool soundPool = new SoundPool(4, AudioManager.STREAM_MUSIC, 0);
+                soundPool.play(sound, 0.99f, 0.99f, 0, 0, 1);
+            }
+        });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +56,7 @@ public class PrepActivity extends AppCompatActivity {
                 if(CORRECT_ANSWER_SELECTED) {
                     viewFlipper.showNext();
                 }
+                currentView = viewFlipper.getCurrentView();
             }
         });
     }
