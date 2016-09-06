@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:layout_gravity="center|top"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="top|center_vertical"
+        >
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/a"
+            android:id="@+id/prep81"
+            android:onClick="answered" />
+
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/a"
+            android:id="@+id/prep82"
+            android:onClick="answered"
+            />
+
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/a"
+            android:id="@+id/prep83"
+            android:onClick="answered"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="288dp"
+        android:orientation="vertical"
+        android:layout_gravity="top">
+
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/a"
+            android:id="@+id/prep84"
+            android:onClick="answered"
+            android:layout_gravity="top" />
+
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/a"
+            android:id="@+id/prep85"
+            android:onClick="answered"
+            android:layout_marginTop="96dp" />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="top|center_vertical">
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/a"
+            android:id="@+id/prep86"
+            android:onClick="answered"
+             />
+
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/a"
+            android:id="@+id/prep87"
+            android:onClick="answered"
+            />
+
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/a"
+            android:id="@+id/prep88"
+            android:onClick="answered"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
