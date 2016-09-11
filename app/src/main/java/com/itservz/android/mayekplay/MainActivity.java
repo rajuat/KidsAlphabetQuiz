@@ -2,15 +2,15 @@ package com.itservz.android.mayekplay;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
-import com.itservz.android.mayekplay.practice.PracticeActivity;
+import com.itservz.android.mayekplay.admob.AdMobActivity;
 import com.itservz.android.mayekplay.prep.PrepActivity;
 
 /**
@@ -116,6 +116,14 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), PrepActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        final Button buttonAds = (Button) findViewById(R.id.goToAds);
+        buttonAds.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), AdMobActivity.class);
                 startActivity(intent);
             }
         });

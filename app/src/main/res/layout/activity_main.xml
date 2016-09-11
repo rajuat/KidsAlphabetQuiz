@@ -8,30 +8,45 @@
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
          TextureView, etc. -->
-    <TextView
-        android:id="@+id/fullscreen_content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:keepScreenOn="true"
-        android:text="@string/dummy_content"
-        android:textColor="#33b5e5"
-        android:textSize="50sp"
-        android:textStyle="bold" />
-    <Button
-        android:layout_width="154dp"
-        android:layout_height="63dp"
-        android:clickable="true"
-        android:id="@+id/goToPrep"
-        android:text="@string/khaibam" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/fullscreen_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:keepScreenOn="true"
+            android:text="@string/dummy_content"
+            android:textColor="#33b5e5"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+        <Button
+            android:layout_width="154dp"
+            android:layout_height="63dp"
+            android:clickable="true"
+            android:id="@+id/goToPrep"
+            android:text="@string/khaibam" />
+
+        <Button
+            android:layout_width="154dp"
+            android:layout_height="63dp"
+            android:clickable="true"
+            android:id="@+id/goToAds"
+            android:text="Ads" />
+
+    </LinearLayout>
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        android:layout_gravity="center">
+        android:layout_gravity="right|top">
 
         <LinearLayout
             android:id="@+id/fullscreen_content_controls"
