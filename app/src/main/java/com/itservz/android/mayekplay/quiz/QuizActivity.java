@@ -1,29 +1,23 @@
-package com.itservz.android.mayekplay.prep;
+package com.itservz.android.mayekplay.quiz;
 
 import android.graphics.Color;
-import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.Toast;
-import android.widget.ViewFlipper;
 
-import com.itservz.android.mayekplay.MayekSoundPoolPlayer;
 import com.itservz.android.mayekplay.QuizPrepBaseActivity;
 import com.itservz.android.mayekplay.R;
-import com.itservz.android.mayekplay.Result;
-import com.itservz.android.mayekplay.ViewBuilder;
 
-public class PrepActivity extends QuizPrepBaseActivity {
+public class QuizActivity extends QuizPrepBaseActivity {
     public static String CORRECT_ANSWER = "correct_answer";
-    //private boolean CORRECT_ANSWER_SELECTED = false;
+    private boolean CORRECT_ANSWER_SELECTED = false;
+    private int score = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_prep);
+        setContentView(R.layout.activity_quiz);
         initialize(this);
     }
 
@@ -31,15 +25,18 @@ public class PrepActivity extends QuizPrepBaseActivity {
         ANSWER_SELECTED = true;
         viewBuilder.resetBackgroundColor(viewIndex);
         if (view.getTag() != null && view.getTag().equals(CORRECT_ANSWER)) {
+            score = score*2;
             new CountDownTimer(300, 300) {
                 public void onTick(long millisUntilFinished) {
                     view.setBackgroundColor(Color.GREEN);
                 }
 
                 public void onFinish() {
-                    //CORRECT_ANSWER_SELECTED = true;
+                    CORRECT_ANSWER_SELECTED = true;
                     result.incrementNoOfCorrectAnswers();
                     correctAnswerEditText.setText("" + result.getNoOfCorrectAnswers());
+                    result.setScore(score);
+                    scoreEditText.setText(""+score);
                     generateNextQuestion();
                 }
             }.start();
@@ -50,11 +47,12 @@ public class PrepActivity extends QuizPrepBaseActivity {
                 }
 
                 public void onFinish() {
-                    //CORRECT_ANSWER_SELECTED = false;
-                    view.setBackgroundColor(Color.WHITE);
+                    CORRECT_ANSWER_SELECTED = false;
                     result.incrementAccumulatedWrongAttempts();
                     wrongAttemptsEditText.setText("" + result.getAccumulatedWrongAttempts());
-                    viewBuilder.build(viewIndex, questionAsSound);
+                    result.setScore(score);
+                    scoreEditText.setText(""+score);
+                    generateNextQuestion();
                 }
             }.start();
         }

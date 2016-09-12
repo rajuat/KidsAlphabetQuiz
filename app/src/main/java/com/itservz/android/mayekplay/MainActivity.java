@@ -12,6 +12,7 @@ import android.widget.Button;
 
 import com.itservz.android.mayekplay.admob.AdMobActivity;
 import com.itservz.android.mayekplay.prep.PrepActivity;
+import com.itservz.android.mayekplay.quiz.QuizActivity;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -120,10 +121,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        final Button buttonAds = (Button) findViewById(R.id.goToAds);
+        final Button buttonAds = (Button) findViewById(R.id.goToQuiz);
         buttonAds.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(getBaseContext(), AdMobActivity.class);
+                Intent intent = new Intent(getBaseContext(), QuizActivity.class);
                 startActivity(intent);
             }
         });

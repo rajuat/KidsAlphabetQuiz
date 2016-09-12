@@ -23,10 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".practice.PracticeActivity"
-            android:label="@string/title_activity_practice"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".prep.PrepActivity" />
         <!-- This meta-data tag is required to use Google Play Services. -->
         <meta-data
@@ -35,12 +31,13 @@
 
         <activity
             android:name=".admob.AdMobActivity"
-            android:label="@string/title_activity_ad_mob"></activity>
+            android:label="@string/title_activity_ad_mob" />
         <!-- Include the AdActivity configChanges and theme. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:theme="@android:style/Theme.Translucent" />
+        <activity android:name=".quiz.QuizActivity"></activity>
     </application>
 
 </manifest>

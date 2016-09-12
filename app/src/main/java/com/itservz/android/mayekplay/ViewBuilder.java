@@ -43,7 +43,7 @@ public class ViewBuilder {
     private List<Integer> askedQuestions = new ArrayList<>();
 
 
-    public void setViewsToFlipper(PrepActivity prepActivity, ViewFlipper viewFlipper){
+    public void setViewsToFlipper(QuizPrepBaseActivity prepActivity, ViewFlipper viewFlipper){
         view2 = LayoutInflater.from(prepActivity).inflate(R.layout.prep2, null);
         viewFlipper.addView(view2, 0);
         views.add(0, view2);

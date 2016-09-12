@@ -36,8 +36,8 @@
             android:layout_width="154dp"
             android:layout_height="63dp"
             android:clickable="true"
-            android:id="@+id/goToAds"
-            android:text="Ads" />
+            android:id="@+id/goToQuiz"
+            android:text="@string/quiz" />
 
     </LinearLayout>
     <!-- This FrameLayout insets its children based on system windows using
