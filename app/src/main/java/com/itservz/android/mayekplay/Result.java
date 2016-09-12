@@ -7,6 +7,7 @@ public class Result {
     private int totalNoOfQuestions;
     private int noOfCorrectAnswers;
     private int accumulatedWrongAttempts;
+    private int score;
 
     public int getScore() {
         return score;
@@ -15,8 +16,6 @@ public class Result {
     public void setScore(int score) {
         this.score = score;
     }
-
-    private int score;
 
     public int getAccumulatedWrongAttempts() {
         return accumulatedWrongAttempts;
