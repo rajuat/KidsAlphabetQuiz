@@ -1,5 +1,6 @@
 package com.itservz.android.mayekplay;
 
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
@@ -11,6 +12,7 @@ import android.widget.ViewFlipper;
  * Created by raju.athokpam on 12-09-2016.
  */
 public class QuizPrepBaseActivity extends AppCompatActivity implements View.OnClickListener {
+    public static String CORRECT_ANSWER = "correct_answer";
     protected MayekSoundPoolPlayer mayekSoundPoolPlayer;
     protected Integer questionAsSound;
     protected boolean ANSWER_SELECTED =  false;
@@ -38,13 +40,14 @@ public class QuizPrepBaseActivity extends AppCompatActivity implements View.OnCl
         }
     }
 
-    protected void initialize(QuizPrepBaseActivity subActivity) {
-        viewIndex = 0;
-        viewFlipper = (ViewFlipper) findViewById(R.id.prepFlipper);
-
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         viewBuilder = new ViewBuilder();
-        viewBuilder.setViewsToFlipper(subActivity, viewFlipper);
+        viewIndex = 0;
+    }
 
+    protected void initialize() {
         currentView = viewBuilder.getView(viewIndex);
 
         questionAsSound = viewBuilder.getQuestionAsSound();

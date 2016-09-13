@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.itservz.android.mayekplay.admob.AdMobActivity;
+import com.itservz.android.mayekplay.match.MatchActivity;
 import com.itservz.android.mayekplay.prep.PrepActivity;
 import com.itservz.android.mayekplay.quiz.QuizActivity;
 
@@ -121,10 +122,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        final Button buttonAds = (Button) findViewById(R.id.goToQuiz);
-        buttonAds.setOnClickListener(new View.OnClickListener() {
+        final Button buttonQuiz = (Button) findViewById(R.id.goToQuiz);
+        buttonQuiz.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), QuizActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        final Button buttonMatch = (Button) findViewById(R.id.goToMatch);
+        buttonMatch.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), MatchActivity.class);
                 startActivity(intent);
             }
         });

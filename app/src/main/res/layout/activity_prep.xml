@@ -14,7 +14,7 @@
         android:layout_weight="4"
         >
             <ViewFlipper
-                android:id="@+id/prepFlipper"
+                android:id="@+id/prepFlipperPrep"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:measureAllChildren="false">

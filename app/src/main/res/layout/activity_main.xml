@@ -30,7 +30,7 @@
             android:layout_height="63dp"
             android:clickable="true"
             android:id="@+id/goToPrep"
-            android:text="@string/khaibam" />
+            android:text="@string/time_pass" />
 
         <Button
             android:layout_width="154dp"
@@ -38,6 +38,13 @@
             android:clickable="true"
             android:id="@+id/goToQuiz"
             android:text="@string/quiz" />
+
+        <Button
+            android:layout_width="154dp"
+            android:layout_height="63dp"
+            android:clickable="true"
+            android:id="@+id/goToMatch"
+            android:text="@string/memory_match" />
 
     </LinearLayout>
     <!-- This FrameLayout insets its children based on system windows using

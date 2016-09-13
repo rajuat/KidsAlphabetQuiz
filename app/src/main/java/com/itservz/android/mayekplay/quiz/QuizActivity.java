@@ -5,6 +5,7 @@ import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ViewFlipper;
 
 import com.itservz.android.mayekplay.QuizPrepBaseActivity;
 import com.itservz.android.mayekplay.R;
@@ -18,7 +19,9 @@ public class QuizActivity extends QuizPrepBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
-        initialize(this);
+        viewFlipper = (ViewFlipper) findViewById(R.id.prepFlipperQuiz);
+        viewBuilder.setViewsToFlipper(this, viewFlipper);
+        initialize();
     }
 
     public void answered(final View view) {

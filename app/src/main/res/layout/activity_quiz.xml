@@ -12,7 +12,7 @@
         android:layout_weight=".66">
 
         <ViewFlipper
-            android:id="@+id/prepFlipper"
+            android:id="@+id/prepFlipperQuiz"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:measureAllChildren="false"></ViewFlipper>

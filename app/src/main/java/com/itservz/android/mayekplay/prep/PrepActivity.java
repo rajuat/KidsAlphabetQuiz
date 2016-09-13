@@ -17,14 +17,16 @@ import com.itservz.android.mayekplay.Result;
 import com.itservz.android.mayekplay.ViewBuilder;
 
 public class PrepActivity extends QuizPrepBaseActivity {
-    public static String CORRECT_ANSWER = "correct_answer";
+
     //private boolean CORRECT_ANSWER_SELECTED = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prep);
-        initialize(this);
+        viewFlipper = (ViewFlipper) findViewById(R.id.prepFlipperPrep);
+        viewBuilder.setViewsToFlipper(this, viewFlipper);
+        initialize();
     }
 
     public void answered(final View view) {
