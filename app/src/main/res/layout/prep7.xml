@@ -13,23 +13,26 @@
         android:layout_gravity="top|center_vertical"
         >
         <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:padding="16dp"
             android:src="@drawable/a"
             android:id="@+id/prep71"
             android:onClick="answered" />
 
         <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:padding="16dp"
             android:src="@drawable/a"
             android:id="@+id/prep72"
             android:onClick="answered"
             />
 
         <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:padding="16dp"
             android:src="@drawable/a"
             android:id="@+id/prep73"
             android:onClick="answered"
@@ -40,11 +43,12 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="64dp"
+        android:paddingTop="96dp"
         android:layout_gravity="top|center_vertical">
         <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:padding="16dp"
             android:src="@drawable/a"
             android:id="@+id/prep74"
             android:onClick="answered"
@@ -60,24 +64,27 @@
         android:orientation="vertical"
         android:layout_gravity="top|center_vertical">
         <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:padding="16dp"
             android:src="@drawable/a"
             android:id="@+id/prep75"
             android:onClick="answered"
              />
 
         <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:padding="16dp"
             android:src="@drawable/a"
             android:id="@+id/prep76"
             android:onClick="answered"
             />
 
         <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:padding="16dp"
             android:src="@drawable/a"
             android:id="@+id/prep77"
             android:onClick="answered"

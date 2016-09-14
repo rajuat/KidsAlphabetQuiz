@@ -7,7 +7,15 @@ public class Result {
     private int totalNoOfQuestions;
     private int noOfCorrectAnswers;
     private int accumulatedWrongAttempts;
-    private int score;
+    private int score = 1;
+
+    public Result(){ }
+
+    public Result(int accumulatedWrongAttempts, int noOfCorrectAnswers, int score) {
+        this.accumulatedWrongAttempts = accumulatedWrongAttempts;
+        this.noOfCorrectAnswers = noOfCorrectAnswers;
+        this.score = score;
+    }
 
     public int getScore() {
         return score;

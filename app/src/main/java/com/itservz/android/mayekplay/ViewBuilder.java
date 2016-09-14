@@ -26,6 +26,13 @@ public class ViewBuilder {
     private View view7;
     private View view8;
     private View view9;
+    private View view10;
+    private View view11;
+    private View view12;
+    private View view13;
+    private View view14;
+    private View view15;
+    private View view16;
 
     private List<MayekCard> cardList = Mayeks.getInstance().getCardList();
     private List<Integer> keys = Mayeks.getInstance().getKeys();
@@ -63,50 +70,92 @@ public class ViewBuilder {
         view9 = LayoutInflater.from(prepActivity).inflate(R.layout.prep9, null);
         viewFlipper.addView(view9, 7);
         views.add(7, view9);
+
+        view10 = LayoutInflater.from(prepActivity).inflate(R.layout.prep16, null);
+        viewFlipper.addView(view10, 8);
+        views.add(8, view10);
+
+        view11 = LayoutInflater.from(prepActivity).inflate(R.layout.prep16, null);
+        viewFlipper.addView(view11, 9);
+        views.add(9, view11);
+
+        view12 = LayoutInflater.from(prepActivity).inflate(R.layout.prep16, null);
+        viewFlipper.addView(view12, 10);
+        views.add(10, view12);
+
+        view13 = LayoutInflater.from(prepActivity).inflate(R.layout.prep16, null);
+        viewFlipper.addView(view13, 11);
+        views.add(11, view13);
+
+        view14 = LayoutInflater.from(prepActivity).inflate(R.layout.prep16, null);
+        viewFlipper.addView(view14, 12);
+        views.add(12, view14);
+
+        view15 = LayoutInflater.from(prepActivity).inflate(R.layout.prep16, null);
+        viewFlipper.addView(view15, 13);
+        views.add(13, view15);
+
+        view16 = LayoutInflater.from(prepActivity).inflate(R.layout.prep16, null);
+        viewFlipper.addView(view16, 14);
+        views.add(14, view16);
     }
 
     public void build(int viewIndex, int questionAsSound) {
         // get a sound to be played
         if (viewIndex == 0) {
             List<ImageView> views2 = QuestionViews.getViews2(view2);
-            //decide a correct answer
             int correctAnswerIndex = new Random().nextInt(1);
             setImages(questionAsSound, views2, correctAnswerIndex);
         } else if (viewIndex == 1) {
             List<ImageView> views3 = QuestionViews.getViews3(view3);
-            //decide a correct answer
             int correctAnswerIndex = new Random().nextInt(2);
             setImages(questionAsSound, views3, correctAnswerIndex);
         } else if (viewIndex == 2) {
             List<ImageView> views4 = QuestionViews.getViews4(view4);
-            //decide a correct answer
             int correctAnswerIndex = new Random().nextInt(3);
             setImages(questionAsSound, views4, correctAnswerIndex);
         } else if (viewIndex == 3) {
             List<ImageView> views5 = QuestionViews.getViews5(view5);
-            //decide a correct answer
             int correctAnswerIndex = new Random().nextInt(4);
             setImages(questionAsSound, views5, correctAnswerIndex);
         } else if (viewIndex == 4) {
             List<ImageView> views6 = QuestionViews.getViews6(view6);
-            //decide a correct answer
             int correctAnswerIndex = new Random().nextInt(5);
             setImages(questionAsSound, views6, correctAnswerIndex);
         } else if (viewIndex == 5) {
             List<ImageView> views7 = QuestionViews.getViews7(view7);
-            //decide a correct answer
             int correctAnswerIndex = new Random().nextInt(6);
             setImages(questionAsSound, views7, correctAnswerIndex);
         } else if (viewIndex == 6) {
             List<ImageView> views8 = QuestionViews.getViews8(view8);
-            //decide a correct answer
             int correctAnswerIndex = new Random().nextInt(7);
             setImages(questionAsSound, views8, correctAnswerIndex);
         } else if (viewIndex == 7) {
             List<ImageView> views9 = QuestionViews.getViews9(view9);
-            //decide a correct answer
             int correctAnswerIndex = new Random().nextInt(8);
             setImages(questionAsSound, views9, correctAnswerIndex);
+        }  else if (viewIndex == 8) {
+            List<ImageView> views10 = QuestionViews.getViews10(view10);
+            int correctAnswerIndex = new Random().nextInt(9);
+            setImages(questionAsSound, views10, correctAnswerIndex);
+        }  else if (viewIndex == 9) {
+            int correctAnswerIndex = new Random().nextInt(viewIndex + 1);
+            setImages(questionAsSound, QuestionViews.getViews11(view11), correctAnswerIndex);
+        }  else if (viewIndex == 10) {
+            int correctAnswerIndex = new Random().nextInt(viewIndex + 1);
+            setImages(questionAsSound, QuestionViews.getViews12(view12), correctAnswerIndex);
+        }  else if (viewIndex == 11) {
+            int correctAnswerIndex = new Random().nextInt(viewIndex + 1);
+            setImages(questionAsSound, QuestionViews.getViews13(view13), correctAnswerIndex);
+        }  else if (viewIndex == 12) {
+            int correctAnswerIndex = new Random().nextInt(viewIndex + 1);
+            setImages(questionAsSound, QuestionViews.getViews14(view14), correctAnswerIndex);
+        }  else if (viewIndex == 13) {
+            int correctAnswerIndex = new Random().nextInt(viewIndex + 1);
+            setImages(questionAsSound, QuestionViews.getViews15(view15), correctAnswerIndex);
+        }  else if (viewIndex == 14) {
+            int correctAnswerIndex = new Random().nextInt(viewIndex + 1);
+            setImages(questionAsSound, QuestionViews.getViews16(view16), correctAnswerIndex);
         }
     }
 
@@ -114,8 +163,18 @@ public class ViewBuilder {
         List<ImageView> views = null;
         if (noOfCards == 4) {
             views = QuestionViews.getViews4(view);
+        } else if(noOfCards == 6){
+            views = QuestionViews.getViews6(view);
         } else if(noOfCards == 8){
             views = QuestionViews.getViews8(view);
+        } else if(noOfCards == 10){
+            views = QuestionViews.getViews10(view);
+        } else if(noOfCards == 12){
+            views = QuestionViews.getViews12(view);
+        } else if(noOfCards == 14){
+            views = QuestionViews.getViews14(view);
+        } else if(noOfCards == 16){
+            views = QuestionViews.getViews16(view);
         }
         List<ImageView> addedViews = new ArrayList<>();
         //for each play the mayeks can be repeated
@@ -187,6 +246,20 @@ public class ViewBuilder {
             imageViews = QuestionViews.getViews8(view8);
         } else if (viewIndex == 7) {
             imageViews = QuestionViews.getViews9(view9);
+        } else if (viewIndex == 8) {
+            imageViews = QuestionViews.getViews16(view10);
+        } else if (viewIndex == 9) {
+            imageViews = QuestionViews.getViews16(view11);
+        } else if (viewIndex == 10) {
+            imageViews = QuestionViews.getViews16(view12);
+        } else if (viewIndex == 11) {
+            imageViews = QuestionViews.getViews16(view13);
+        } else if (viewIndex == 12) {
+            imageViews = QuestionViews.getViews16(view14);
+        } else if (viewIndex == 13) {
+            imageViews = QuestionViews.getViews16(view15);
+        } else if (viewIndex == 14) {
+            imageViews = QuestionViews.getViews16(view16);
         }
 
         for (ImageView imageView : imageViews) {
@@ -194,19 +267,10 @@ public class ViewBuilder {
         }
     }
 
-
-    @Deprecated
-    private ImageView randomViewFromList(List<ImageView> views) {
-        Random randomizer = new Random();
-        return views.get(randomizer.nextInt(views.size()));
-    }
-
     private MayekCard randomImageFromRest(List<MayekCard> addedCards) {
         Random randomizer = new Random();
         List<MayekCard> temp = new ArrayList<>(cardList);
-        Log.d("randomImageFromRest", "" + temp.size());
         temp.removeAll(addedCards);
-        Log.d("randomImageFromRest", "" + temp.size());
         return temp.get(randomizer.nextInt(temp.size()));
     }
 
@@ -218,11 +282,6 @@ public class ViewBuilder {
         askedQuestions.add(question);
         return question;
     }
-
-    /*private void randomCorrectAnswer(List<ImageView> views) {
-        Random randomizer = new Random();
-        ImageView random = views.get(randomizer.nextInt(views.size()));
-    }*/
 
     public View getView(int index) {
         return views.get(index);

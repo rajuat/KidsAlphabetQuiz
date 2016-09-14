@@ -2,6 +2,7 @@ package com.itservz.android.mayekplay;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -16,7 +17,7 @@ public class QuizPrepBaseActivity extends AppCompatActivity implements View.OnCl
     protected MayekSoundPoolPlayer mayekSoundPoolPlayer;
     protected Integer questionAsSound;
     protected boolean ANSWER_SELECTED =  false;
-    protected int viewIndex = 0;
+    //protected int viewIndex = 0;
     protected ViewBuilder viewBuilder;
     protected ViewFlipper viewFlipper;
     protected View currentView;
@@ -24,6 +25,11 @@ public class QuizPrepBaseActivity extends AppCompatActivity implements View.OnCl
     protected EditText correctAnswerEditText;
     protected EditText wrongAttemptsEditText;
     protected EditText scoreEditText;
+    protected String FLIPPER_POSITION = "FLIPPER_POSITION";
+    protected String QUESTION_AS_SOUND = "QUESTION_AS_SOUND";
+    protected String WRONG_ANSWER = "WRONG_ANSWER";
+    protected String RIGHT_ANSWER = "RIGHT_ANSWER";
+    protected String SCORE = "SCORE";
 
     @Override
     public void onClick(View view) {
@@ -41,20 +47,33 @@ public class QuizPrepBaseActivity extends AppCompatActivity implements View.OnCl
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        viewBuilder = new ViewBuilder();
-        viewIndex = 0;
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        int position = viewFlipper.getDisplayedChild();
+        Log.d("onSaveInstanceState", ""+position);
+        savedInstanceState.putInt(FLIPPER_POSITION, position);
+        savedInstanceState.putInt(QUESTION_AS_SOUND, questionAsSound);
+        savedInstanceState.putInt(WRONG_ANSWER, result.getAccumulatedWrongAttempts());
+        savedInstanceState.putInt(RIGHT_ANSWER, result.getNoOfCorrectAnswers());
+        savedInstanceState.putInt(SCORE, result.getScore());
+        super.onSaveInstanceState(savedInstanceState);
     }
 
-    protected void initialize() {
-        currentView = viewBuilder.getView(viewIndex);
+    protected void initialize(Bundle savedInstanceState) {
+        if (savedInstanceState != null) {
+            int flipperPosition = savedInstanceState.getInt(FLIPPER_POSITION);
+            Log.d("onCreate", "" + flipperPosition);
+            viewFlipper.setDisplayedChild(flipperPosition);
+            currentView = viewFlipper.getCurrentView();
+            questionAsSound = savedInstanceState.getInt(QUESTION_AS_SOUND);
+            result = new Result(savedInstanceState.getInt(WRONG_ANSWER), savedInstanceState.getInt(RIGHT_ANSWER), savedInstanceState.getInt(SCORE));
+        } else{
+            currentView = viewBuilder.getView(viewFlipper.getDisplayedChild());
+            viewFlipper.setDisplayedChild(viewFlipper.indexOfChild(currentView));
+            questionAsSound = viewBuilder.getQuestionAsSound();
+            result = new Result();
+        }
 
-        questionAsSound = viewBuilder.getQuestionAsSound();
-        viewBuilder.build(viewIndex, questionAsSound);
-
-        viewFlipper.setDisplayedChild(viewFlipper.indexOfChild(currentView));
-
+        viewBuilder.build(viewFlipper.getDisplayedChild(), questionAsSound);
         mayekSoundPoolPlayer = new MayekSoundPoolPlayer(getApplicationContext());
         mayekSoundPoolPlayer.playShortResource(questionAsSound);
 
@@ -64,7 +83,7 @@ public class QuizPrepBaseActivity extends AppCompatActivity implements View.OnCl
         ImageView nextButton = (ImageView) findViewById(R.id.next_btn);
         nextButton.setOnClickListener(this);
 
-        result = new Result();
+
         result.setTotalNoOfQuestions(viewBuilder.getTotalNoOfViews());
         correctAnswerEditText = (EditText) findViewById(R.id.correct_answers_value);
         wrongAttemptsEditText = (EditText) findViewById(R.id.wrong_attempts_value);
@@ -72,17 +91,17 @@ public class QuizPrepBaseActivity extends AppCompatActivity implements View.OnCl
     }
 
     protected void generateNextQuestion() {
-        if (viewIndex < viewBuilder.getTotalNoOfViews()-1 ) {
+        if (viewFlipper.getDisplayedChild() < viewBuilder.getTotalNoOfViews()-1 ) {
             ANSWER_SELECTED = true;
-            viewIndex++;
+            //viewIndex++;
             questionAsSound = viewBuilder.getQuestionAsSound();
-            viewBuilder.build(viewIndex, questionAsSound);
+            viewBuilder.build(viewFlipper.getDisplayedChild()+1, questionAsSound);
             mayekSoundPoolPlayer.playShortResource(questionAsSound);
             viewFlipper.showNext();
             currentView = viewFlipper.getCurrentView();
         } else {
             //end of quiz
-            setContentView(R.layout.activity_prep_end);
+            setContentView(R.layout.activity_quiz_end);
             EditText scoreAllEditText = (EditText) findViewById(R.id.score_value_all);
             if(result.getScore() == 0){
                 scoreAllEditText.setText("Take quiz for scores :-)");

@@ -17,7 +17,6 @@ import java.util.List;
 public class MatchActivity extends AppCompatActivity {
     private ViewBuilder viewBuilder;
     private View linearLayout;
-    private int evenOdd = 0;
     private ImageView matching = null;
 
     @Override
@@ -26,15 +25,15 @@ public class MatchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_match);
 
         viewBuilder = new ViewBuilder();
-        linearLayout = ((ViewStub) findViewById(R.id.stub_prep8)).inflate();
-        viewBuilder.buildMatch(linearLayout, 8);
+        linearLayout = ((ViewStub) findViewById(R.id.stub_prep16)).inflate();
+        viewBuilder.buildMatch(linearLayout, 10);
 
     }
 
 
     public void click(View view) {
         if (view.getId() == R.id.next_btn_match) {
-            viewBuilder.buildMatch(linearLayout, 4);
+            viewBuilder.buildMatch(linearLayout, 10);
         }
     }
 
@@ -42,23 +41,18 @@ public class MatchActivity extends AppCompatActivity {
     public void answered(View view) {
         if (view instanceof ImageView) {
             ImageView imageView = (ImageView) view;
-            if (!secondClick) { //odd
-                Log.d("answered", "first");
+            if (!secondClick) {
                 matching = imageView;
                 imageView.setImageResource(0);
                 secondClick = true;
             } else if (matching.getTag().equals(imageView.getTag())) {
-                Log.d("answered", "second match");
                 imageView.setImageResource(0);
                 secondClick = false;
             } else {
-                Log.d("answered", "second not match");
                 imageView.setImageResource(R.drawable.opacity);
                 matching.setImageResource(R.drawable.opacity);
                 secondClick = false;
             }
-
-            //evenOdd++;
 
         }
     }

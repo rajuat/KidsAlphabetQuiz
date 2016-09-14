@@ -14,6 +14,7 @@
         <ImageView
             android:layout_width="96dp"
             android:layout_height="96dp"
+            android:padding="16dp"
             android:src="@drawable/a"
             android:id="@+id/prep41"
             android:onClick="answered" />
@@ -21,6 +22,7 @@
         <ImageView
             android:layout_width="96dp"
             android:layout_height="96dp"
+            android:padding="16dp"
             android:src="@drawable/a"
             android:id="@+id/prep43"
             android:onClick="answered"
@@ -36,6 +38,7 @@
         <ImageView
             android:layout_width="96dp"
             android:layout_height="96dp"
+            android:padding="16dp"
             android:src="@drawable/a"
             android:id="@+id/prep42"
             android:onClick="answered"
@@ -44,6 +47,7 @@
         <ImageView
             android:layout_width="96dp"
             android:layout_height="96dp"
+            android:padding="16dp"
             android:src="@drawable/a"
             android:id="@+id/prep44"
             android:onClick="answered"

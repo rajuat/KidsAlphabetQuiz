@@ -13,23 +13,26 @@
         android:layout_gravity="top|center_vertical"
         >
         <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:padding="16dp"
             android:src="@drawable/a"
             android:id="@+id/prep91"
             android:onClick="answered" />
 
         <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:padding="16dp"
             android:src="@drawable/a"
             android:id="@+id/prep92"
             android:onClick="answered"
             />
 
         <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:padding="16dp"
             android:src="@drawable/a"
             android:id="@+id/prep93"
             android:onClick="answered"
@@ -44,30 +47,31 @@
         android:layout_gravity="top">
 
         <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:padding="16dp"
             android:src="@drawable/a"
             android:id="@+id/prep94"
             android:onClick="answered"
             android:layout_gravity="top" />
 
         <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:padding="16dp"
             android:src="@drawable/a"
             android:id="@+id/prep95"
             android:onClick="answered"
             />
 
         <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:padding="16dp"
             android:src="@drawable/a"
             android:id="@+id/prep96"
             android:onClick="answered"
              />
-
-
 
     </LinearLayout>
 
@@ -77,24 +81,27 @@
         android:orientation="vertical"
         android:layout_gravity="top|center_vertical">
         <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:padding="16dp"
             android:src="@drawable/a"
             android:id="@+id/prep97"
             android:onClick="answered"
              />
 
         <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:padding="16dp"
             android:src="@drawable/a"
             android:id="@+id/prep98"
             android:onClick="answered"
             />
 
         <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:padding="16dp"
             android:src="@drawable/a"
             android:id="@+id/prep99"
             android:onClick="answered"

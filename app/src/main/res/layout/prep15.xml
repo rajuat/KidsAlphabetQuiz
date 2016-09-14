@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center|top"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+
+        android:layout_weight=".33"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/prep151"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".20"
+            android:onClick="answered"
+
+            android:src="@drawable/a" />
+
+        <ImageView
+            android:id="@+id/prep152"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".20"
+            android:onClick="answered"
+
+            android:src="@drawable/a" />
+
+        <ImageView
+            android:id="@+id/prep153"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".20"
+            android:onClick="answered"
+
+            android:src="@drawable/a" />
+
+        <ImageView
+            android:id="@+id/prep154"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".20"
+            android:onClick="answered"
+
+            android:src="@drawable/a" />
+
+        <ImageView
+            android:id="@+id/prep155"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".20"
+            android:onClick="answered"
+
+            android:src="@drawable/a" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+
+        android:layout_weight=".33"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/prep156"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".20"
+            android:onClick="answered"
+
+            android:src="@drawable/a" />
+
+        <ImageView
+            android:id="@+id/prep157"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".20"
+            android:onClick="answered"
+
+            android:src="@drawable/a" />
+
+        <ImageView
+            android:id="@+id/prep158"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".20"
+            android:onClick="answered"
+
+            android:src="@drawable/a" />
+
+        <ImageView
+            android:id="@+id/prep159"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".20"
+            android:onClick="answered"
+
+            android:src="@drawable/a" />
+
+        <ImageView
+            android:id="@+id/prep1510"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".20"
+            android:onClick="answered"
+
+            android:src="@drawable/a" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+
+        android:layout_weight=".33"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/prep1511"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".20"
+            android:onClick="answered"
+
+            android:src="@drawable/a" />
+
+        <ImageView
+            android:id="@+id/prep1512"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".20"
+            android:onClick="answered"
+
+            android:src="@drawable/a" />
+
+        <ImageView
+            android:id="@+id/prep1513"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".20"
+            android:onClick="answered"
+
+            android:src="@drawable/a" />
+
+        <ImageView
+            android:id="@+id/prep1514"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".20"
+            android:onClick="answered"
+
+            android:src="@drawable/a" />
+
+        <ImageView
+            android:id="@+id/prep1515"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".20"
+            android:onClick="answered"
+
+            android:src="@drawable/a" />
+
+    </LinearLayout>
+
+</LinearLayout>

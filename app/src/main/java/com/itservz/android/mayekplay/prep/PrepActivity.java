@@ -18,20 +18,20 @@ import com.itservz.android.mayekplay.ViewBuilder;
 
 public class PrepActivity extends QuizPrepBaseActivity {
 
-    //private boolean CORRECT_ANSWER_SELECTED = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_prep);
-        viewFlipper = (ViewFlipper) findViewById(R.id.prepFlipperPrep);
+        setContentView(R.layout.activity_quiz);
+        viewFlipper = (ViewFlipper) findViewById(R.id.prepFlipperQuiz);
+        viewBuilder = new ViewBuilder();
         viewBuilder.setViewsToFlipper(this, viewFlipper);
-        initialize();
+        initialize(savedInstanceState);
     }
 
     public void answered(final View view) {
         ANSWER_SELECTED = true;
-        viewBuilder.resetBackgroundColor(viewIndex);
+        viewBuilder.resetBackgroundColor(viewFlipper.getDisplayedChild());
         if (view.getTag() != null && view.getTag().equals(CORRECT_ANSWER)) {
             new CountDownTimer(300, 300) {
                 public void onTick(long millisUntilFinished) {
@@ -39,7 +39,6 @@ public class PrepActivity extends QuizPrepBaseActivity {
                 }
 
                 public void onFinish() {
-                    //CORRECT_ANSWER_SELECTED = true;
                     result.incrementNoOfCorrectAnswers();
                     correctAnswerEditText.setText("" + result.getNoOfCorrectAnswers());
                     generateNextQuestion();
@@ -52,11 +51,10 @@ public class PrepActivity extends QuizPrepBaseActivity {
                 }
 
                 public void onFinish() {
-                    //CORRECT_ANSWER_SELECTED = false;
                     view.setBackgroundColor(Color.WHITE);
                     result.incrementAccumulatedWrongAttempts();
                     wrongAttemptsEditText.setText("" + result.getAccumulatedWrongAttempts());
-                    viewBuilder.build(viewIndex, questionAsSound);
+                    viewBuilder.build(viewFlipper.getDisplayedChild(), questionAsSound);
                 }
             }.start();
         }

@@ -12,7 +12,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:orientation="vertical"
         android:layout_weight=".70">
 
@@ -30,12 +30,19 @@
             android:inflatedId="@+id/inflate_stub_prep8"
             android:layout="@layout/prep8" />
 
+        <ViewStub
+            android:id="@+id/stub_prep16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inflatedId="@+id/inflate_stub_prep16"
+            android:layout="@layout/prep16" />
+
     </LinearLayout>
 
     <ImageView
         android:id="@+id/next_btn_match"
         android:layout_width="96dp"
-        android:layout_height="96dp"
+        android:layout_height="0dp"
         android:layout_weight=".30"
         android:adjustViewBounds="true"
         android:onClick="click"

@@ -12,6 +12,7 @@
         <ImageView
             android:layout_width="96dp"
             android:layout_height="96dp"
+            android:padding="16dp"
             android:src="@drawable/a"
             android:id="@+id/prep22"
             android:onClick="answered"
@@ -20,6 +21,7 @@
         <ImageView
             android:layout_width="96dp"
             android:layout_height="96dp"
+            android:padding="16dp"
             android:src="@drawable/a"
             android:id="@+id/prep21"
             android:onClick="answered"
