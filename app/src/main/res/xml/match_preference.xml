@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:dependency="pref_sync"
+        android:key="pref_syncConnectionType"
+        android:title="@string/memory_match_difficulty"
+        android:dialogTitle="title"
+        android:defaultValue="pref_syncConnectionTypes_default" />
+        <!--android:entries="pref_syncConnectionTypes_entries"
+        android:entryValues="pref_syncConnectionTypes_values"-->
+
+</PreferenceScreen>

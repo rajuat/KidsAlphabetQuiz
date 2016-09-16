@@ -160,6 +160,7 @@ public class ViewBuilder {
     }
 
     public void buildMatch(View view, int noOfCards) {
+        Log.d("ViewBuilder buildmatch", ""+noOfCards);
         List<ImageView> views = null;
         if (noOfCards == 4) {
             views = QuestionViews.getViews4(view);

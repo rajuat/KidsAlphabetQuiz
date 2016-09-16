@@ -10,6 +10,7 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_ad_mob">AdMobActivity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="memory_match_difficulty">Level</string>
 
 
     <string name="facebook_app_id_new">1725961954332201</string>

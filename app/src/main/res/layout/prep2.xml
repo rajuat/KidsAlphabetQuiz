@@ -10,19 +10,19 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center">
         <ImageView
-            android:layout_width="96dp"
-            android:layout_height="96dp"
-            android:padding="16dp"
-            android:src="@drawable/a"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_margin="16dp"
+            android:scaleType="fitXY"
             android:id="@+id/prep22"
             android:onClick="answered"
              />
 
         <ImageView
-            android:layout_width="96dp"
-            android:layout_height="96dp"
-            android:padding="16dp"
-            android:src="@drawable/a"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_margin="16dp"
+            android:scaleType="fitXY"
             android:id="@+id/prep21"
             android:onClick="answered"
             />
