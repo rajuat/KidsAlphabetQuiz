@@ -14,16 +14,23 @@
             android:id="@+id/sound_btn"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:layout_weight=".50"
+            android:layout_weight=".33"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
             android:src="@drawable/sound" />
+
+        <EditText
+            android:id="@+id/question_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".34"
+            android:text="DUMMY"/>
 
         <ImageView
             android:id="@+id/next_btn"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:layout_weight=".50"
+            android:layout_weight=".33"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
             android:src="@drawable/next" />

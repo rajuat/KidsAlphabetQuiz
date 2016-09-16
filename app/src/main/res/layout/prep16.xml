@@ -19,10 +19,9 @@
             android:id="@+id/prep161"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_weight=".25"
             android:onClick="answered"
-
-            />
+            android:src="@drawable/a"
+            android:layout_weight=".25" />
 
         <ImageView
             android:id="@+id/prep162"
@@ -30,7 +29,7 @@
             android:layout_height="0dp"
             android:layout_weight=".25"
             android:onClick="answered"
-
+            android:src="@drawable/a"
             />
 
         <ImageView

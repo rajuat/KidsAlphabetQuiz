@@ -1,5 +1,6 @@
 package com.itservz.android.mayekplay.match;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -49,8 +50,8 @@ public class MatchActivity extends AppCompatActivity {
                 imageView.setImageResource(0);
                 secondClick = false;
             } else {
-                imageView.setImageResource(R.drawable.opacity);
-                matching.setImageResource(R.drawable.opacity);
+                imageView.setImageResource(R.drawable.questionmark);
+                matching.setImageResource(R.drawable.questionmark);
                 secondClick = false;
             }
 

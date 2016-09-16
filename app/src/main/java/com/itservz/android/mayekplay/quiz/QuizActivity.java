@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ViewFlipper;
 
+import com.facebook.FacebookSdk;
+import com.facebook.share.widget.ShareButton;
 import com.itservz.android.mayekplay.QuizPrepBaseActivity;
 import com.itservz.android.mayekplay.R;
 import com.itservz.android.mayekplay.ViewBuilder;
@@ -19,13 +21,15 @@ public class QuizActivity extends QuizPrepBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_quiz);
+
         viewFlipper = (ViewFlipper) findViewById(R.id.prepFlipperQuiz);
 
         viewBuilder = new ViewBuilder();
         viewBuilder.setViewsToFlipper(this, viewFlipper);
-
         initialize(savedInstanceState);
+
     }
 
     public void answered(final View view) {

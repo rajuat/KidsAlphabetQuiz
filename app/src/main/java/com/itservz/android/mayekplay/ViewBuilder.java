@@ -186,13 +186,13 @@ public class ViewBuilder {
             ImageView match1 = randomViewFromRest(views, addedViews);
             match1.setBackgroundResource(res);
             match1.setTag(res);
-            match1.setImageResource(R.drawable.opacity);
+            match1.setImageResource(R.drawable.questionmark);
             addedViews.add(match1);
 
             ImageView match2 = randomViewFromRest(views, addedViews);
             match2.setBackgroundResource(res);
             match2.setTag(res);
-            match2.setImageResource(R.drawable.opacity);
+            match2.setImageResource(R.drawable.questionmark);
             addedViews.add(match2);
         }
     }
