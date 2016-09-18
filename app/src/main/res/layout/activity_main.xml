@@ -1,94 +1,95 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bgmayekplay"
+    android:orientation="vertical"
     tools:context="com.itservz.android.mayekplay.MainActivity">
 
-    <!-- The primary full-screen view. This can be replaced with whatever view
-         is needed to present your content, e.g. VideoView, SurfaceView,
-         TextureView, etc. android:background="#0099cc" -->
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="303dp"
-        android:orientation="vertical"
-        android:layout_gravity="center">
-
-        <TextView
-            android:id="@+id/fullscreen_content"
-            android:layout_width="387dp"
-            android:layout_height="0dp"
-            android:layout_weight=".40"
-            android:gravity="center"
-            android:keepScreenOn="true"
-            android:text="Mayek sanasi :-)"
-            android:textColor="#ffffff"
-            android:textSize="50sp"
-            android:textStyle="bold"
-            android:layout_gravity="top" />
-
-        <Button
-            android:layout_width="154dp"
-            android:layout_height="0dp"
-            android:layout_weight=".20"
-            android:layout_margin="8dp"
-            android:clickable="true"
-            android:background="#9d9da2"
-            android:id="@+id/goToPrep"
-            android:text="@string/time_pass"
-            android:layout_gravity="center_horizontal" />
-
-        <Button
-            android:layout_width="154dp"
-            android:layout_height="0dp"
-            android:layout_weight=".20"
-            android:layout_margin="8dp"
-            android:clickable="true"
-            android:background="#9d9da2"
-            android:id="@+id/goToQuiz"
-            android:text="@string/quiz"
-            android:layout_gravity="center_horizontal" />
-
-        <Button
-            android:layout_width="154dp"
-            android:layout_height="0dp"
-            android:layout_weight=".20"
-            android:layout_margin="8dp"
-            android:clickable="true"
-            android:background="#9d9da2"
-            android:id="@+id/goToMatch"
-            android:text="@string/memory_match"
-            android:layout_gravity="center_horizontal" />
-
-    </LinearLayout>
-    <!-- This FrameLayout insets its children based on system windows using
-         android:fitsSystemWindows. -->
-    <FrameLayout
+    <TextView
+        android:id="@+id/fullscreen_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        android:layout_gravity="right|top">
+        android:layout_height="0dp"
+        android:layout_weight=".70"
+        android:gravity="center_horizontal"
+        android:keepScreenOn="true"
+        android:text="Mayek sanasi :-)"
+        android:textColor="#ffffff"
+        android:textSize="50sp"
+        android:textStyle="bold" />
 
-        <LinearLayout
-            android:id="@+id/fullscreen_content_controls"
-            style="?metaButtonBarStyle"
-            android:layout_width="match_parent"
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight=".30"
+        android:layout_gravity="bottom|right">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:background="@color/black_overlay"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right|bottom"
+            android:baselineAligned="false"
+            android:src="@android:drawable/ic_menu_agenda"
+            app:fabSize="normal" />
 
-            <Button
-                android:id="@+id/dummy_button"
-                style="?metaButtonBarButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/dummy_button" />
+        <Button
+            android:id="@+id/goToVisual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_margin="@dimen/fab_margin"
+            android:onClick="click"
+            android:src="@android:drawable/ic_menu_myplaces"
+            android:visibility="invisible"
+            android:text="Quick"
+            android:background="@drawable/rounded_button"
+            />
 
-        </LinearLayout>
+        <Button
+            android:id="@+id/goToPrep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_margin="@dimen/fab_margin"
+            android:onClick="click"
+            android:text="Prep"
+            android:src="@android:drawable/ic_menu_myplaces"
+            android:visibility="invisible"
+            />
+
+        <Button
+            android:id="@+id/goToQuiz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_margin="@dimen/fab_margin"
+            android:onClick="click"
+            android:text="Quiz"
+            android:src="@android:drawable/ic_menu_share"
+            android:visibility="invisible"
+            />
+
+        <Button
+            android:id="@+id/goToMatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_margin="@dimen/fab_margin"
+            android:onClick="click"
+            android:text="Match"
+            android:src="@android:drawable/ic_menu_share"
+            android:visibility="invisible"
+            />
+
+
     </FrameLayout>
 
-</FrameLayout>
+
+</LinearLayout>

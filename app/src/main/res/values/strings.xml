@@ -4,6 +4,7 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="time_pass">Time pass</string>
+    <string name="visual">2 mins mayek</string>
     <string name="quiz">Quiz</string>
     <string name="memory_match">Memory match</string>
     <string name="action_settings">Settings</string>
@@ -19,7 +20,7 @@
     <string name="test_ad_mob_application_id">ca-app-pub-3940256099942544~3347511713</string>
     <string name="test_banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <string name="ad_mob_application_id"></string>
-    <string name="banner_ad_unit_id_prep"></string>
+    <string name="banner_ad_unit_id_visual"></string>
     <string name="banner_ad_unit_id_quiz"></string>
     <string name="banner_ad_unit_id_match"></string>
 </resources>
