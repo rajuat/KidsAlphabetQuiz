@@ -7,7 +7,7 @@ public class Result {
     private int totalNoOfQuestions;
     private int noOfCorrectAnswers;
     private int accumulatedWrongAttempts;
-    private int score = 1;
+    private int score;
 
     public Result(){ }
 

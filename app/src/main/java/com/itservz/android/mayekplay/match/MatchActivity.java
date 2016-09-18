@@ -1,14 +1,19 @@
 package com.itservz.android.mayekplay.match;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.view.ViewStub;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.itservz.android.mayekplay.R;
 import com.itservz.android.mayekplay.ViewBuilder;
 
@@ -22,15 +27,25 @@ public class MatchActivity extends Activity {
     private View viewStub8;
     private View viewStub10121416;
 
+    private int squares;
+    private int matches;
+    private int bounces;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_match);
+
+        AdView adView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+
         viewBuilder = new ViewBuilder();
 
         viewStub6 = ((ViewStub) findViewById(R.id.stub_prep6)).inflate();
         viewBuilder.buildMatch(viewStub6, 6);
+        squares = 6;
         viewStub4 = ((ViewStub) findViewById(R.id.stub_prep4)).inflate();
         viewStub4.setVisibility(View.GONE);
         viewStub8 = ((ViewStub) findViewById(R.id.stub_prep8)).inflate();
@@ -71,18 +86,19 @@ public class MatchActivity extends Activity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 int progress = seekBar.getProgress();
+                squares = progress;
                 if (progress == 4) {
                     viewStub4.setVisibility(View.VISIBLE);
                     viewStub6.setVisibility(View.GONE);
                     viewStub8.setVisibility(View.GONE);
                     viewStub10121416.setVisibility(View.GONE);
-                    viewBuilder.buildMatch(viewStub4, seekBar.getProgress());
+                    viewBuilder.buildMatch(viewStub4, progress);
                 } else if (progress == 6) {
                     viewStub4.setVisibility(View.GONE);
                     viewStub6.setVisibility(View.VISIBLE);
                     viewStub8.setVisibility(View.GONE);
                     viewStub10121416.setVisibility(View.GONE);
-                    viewBuilder.buildMatch(viewStub6, seekBar.getProgress());
+                    viewBuilder.buildMatch(viewStub6, progress);
                 } else if (progress == 8) {
                     viewStub4.setVisibility(View.GONE);
                     viewStub6.setVisibility(View.GONE);
@@ -94,7 +110,7 @@ public class MatchActivity extends Activity {
                     viewStub6.setVisibility(View.GONE);
                     viewStub8.setVisibility(View.GONE);
                     viewStub10121416.setVisibility(View.VISIBLE);
-                    viewBuilder.buildMatch(viewStub10121416, seekBar.getProgress());
+                    viewBuilder.buildMatch(viewStub10121416, progress);
                 }
             }
 
@@ -103,7 +119,12 @@ public class MatchActivity extends Activity {
 
     public void answered(View view) {
         if (view instanceof ImageView) {
+            final MatchActivity matchActivity = this;
             final ImageView imageView = (ImageView) view;
+            if(imageView.equals(matching)){
+                //clicks the same image twice
+                return;
+            }
             new CountDownTimer(500, 500) {
                 public void onTick(long millisUntilFinished) {
                     imageView.setImageResource(0);
@@ -115,10 +136,30 @@ public class MatchActivity extends Activity {
                         secondClick = true;
                     } else if (matching.getTag().equals(imageView.getTag())) {
                         secondClick = false;
+                        matches++;
+                        if(matches == squares/2){
+                            final Dialog endDialog = new Dialog(matchActivity);
+                            endDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                            endDialog.setContentView(R.layout.activity_match_end);
+                            Button smallBtn = (Button) endDialog.findViewById(R.id.match_dailog_close);
+                            smallBtn.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    endDialog.dismiss();
+                                    finish();
+                                }
+                            });
+                            TextView matchResult = (TextView) endDialog.findViewById(R.id.match_result);
+                            String string = "You had " + bounces + " bounces out of " + matches + " matches.";
+                            matchResult.setText(string);
+
+                            endDialog.show();
+                        }
                     } else {
                         imageView.setImageResource(R.drawable.questionmark);
                         matching.setImageResource(R.drawable.questionmark);
                         secondClick = false;
+                        bounces++;
                     }
                 }
             }.start();

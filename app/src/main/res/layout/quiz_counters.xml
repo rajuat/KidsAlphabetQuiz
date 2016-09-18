@@ -12,31 +12,41 @@
 
         <ImageView
             android:id="@+id/sound_btn"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_weight=".33"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".20"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
             android:src="@drawable/sound" />
 
         <EditText
             android:id="@+id/question_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".34"
+            android:text="DUMMY"
             android:textColor="#ffffff"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:text="DUMMY"/>
+            android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/next_btn"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_weight=".33"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/next" />
+        <EditText
+            android:id="@+id/progress_quiz_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".26"
+            android:text="Progress"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/progress_quiz"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".20"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -51,62 +61,61 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight=".23"
+            android:text="Score:"
             android:textColor="#ffffff"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:text="Score:" />
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/score_value"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight=".11"
+            android:inputType="number"
             android:textColor="#ffffff"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:inputType="number" />
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/correct_answers_label"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight=".23"
+            android:text="Yayy:"
             android:textColor="#ffffff"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:text="Yayy:" />
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/correct_answers_value"
-            android:layout_height="match_parent"
             android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight=".10"
+            android:inputType="number"
             android:textColor="#ffffff"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:inputType="number" />
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/wrong_attempts_label"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight=".23"
+            android:text="Oops:"
             android:textColor="#ffffff"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:text="Oops:" />
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/wrong_attempts_value"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight=".10"
+            android:inputType="number"
             android:textColor="#ffffff"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_weight=".10"
-            android:inputType="number" />
+            android:textStyle="bold" />
 
     </LinearLayout>
-
 
 </LinearLayout>

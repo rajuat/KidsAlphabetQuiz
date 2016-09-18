@@ -3,18 +3,14 @@ package com.itservz.android.mayekplay.prep;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-import com.itservz.android.mayekplay.MayekSoundPoolPlayer;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.itservz.android.mayekplay.QuizPrepBaseActivity;
 import com.itservz.android.mayekplay.R;
-import com.itservz.android.mayekplay.Result;
 import com.itservz.android.mayekplay.ViewBuilder;
 
 public class PrepActivity extends QuizPrepBaseActivity {
@@ -25,6 +21,11 @@ public class PrepActivity extends QuizPrepBaseActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_quiz);
+
+        AdView adView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+
         viewFlipper = (ViewFlipper) findViewById(R.id.prepFlipperQuiz);
         viewBuilder = new ViewBuilder();
         viewBuilder.setViewsToFlipper(this, viewFlipper);
@@ -60,5 +61,6 @@ public class PrepActivity extends QuizPrepBaseActivity {
                 }
             }.start();
         }
+        setProgress();
     }
 }

@@ -10,7 +10,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
-import com.itservz.android.mayekplay.admob.AdMobActivity;
+import com.google.android.gms.ads.MobileAds;
 import com.itservz.android.mayekplay.match.MatchActivity;
 import com.itservz.android.mayekplay.prep.PrepActivity;
 import com.itservz.android.mayekplay.quiz.QuizActivity;
@@ -95,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544~3347511713");
 
         mVisible = true;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
