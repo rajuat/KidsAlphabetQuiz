@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ViewFlipper;
 
 import com.facebook.FacebookSdk;
@@ -22,6 +23,7 @@ public class QuizActivity extends QuizPrepBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_quiz);
 

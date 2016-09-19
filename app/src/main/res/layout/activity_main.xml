@@ -12,7 +12,7 @@
         android:id="@+id/fullscreen_content"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight=".70"
+        android:layout_weight=".40"
         android:gravity="center_horizontal"
         android:keepScreenOn="true"
         android:text="Mayek sanasi :-)"
@@ -22,74 +22,81 @@
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="wrap_content"
+        android:layout_width="283dp"
         android:layout_height="0dp"
-        android:layout_weight=".30"
-        android:layout_gravity="bottom|right">
+        android:layout_gravity="bottom|right"
+        android:layout_weight=".60">
 
-        <android.support.design.widget.FloatingActionButton
+        <Button
             android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="69dp"
+            android:layout_height="69dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_gravity="right|bottom"
             android:baselineAligned="false"
-            android:src="@android:drawable/ic_menu_agenda"
-            app:fabSize="normal" />
+            android:onClick="click"
+            android:background="@drawable/rounded_button"
+            android:text="Hourase :-)"
+             />
 
         <Button
             android:id="@+id/goToVisual"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_margin="@dimen/fab_margin"
-            android:onClick="click"
-            android:src="@android:drawable/ic_menu_myplaces"
-            android:visibility="invisible"
-            android:text="Quick"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right|bottom"
+            android:baselineAligned="false"
             android:background="@drawable/rounded_button"
-            />
+            android:onClick="click"
+            android:text="Quick"
+            android:visibility="invisible" />
 
         <Button
             android:id="@+id/goToPrep"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_margin="@dimen/fab_margin"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right|bottom"
+            android:baselineAligned="false"
+            android:background="@drawable/rounded_button"
             android:onClick="click"
             android:text="Prep"
-            android:src="@android:drawable/ic_menu_myplaces"
-            android:visibility="invisible"
-            />
+            android:visibility="invisible" />
 
         <Button
             android:id="@+id/goToQuiz"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_margin="@dimen/fab_margin"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right|bottom"
+            android:baselineAligned="false"
+            android:background="@drawable/rounded_button"
             android:onClick="click"
             android:text="Quiz"
-            android:src="@android:drawable/ic_menu_share"
-            android:visibility="invisible"
-            />
+            android:visibility="invisible" />
 
         <Button
             android:id="@+id/goToMatch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_margin="@dimen/fab_margin"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right|bottom"
+            android:baselineAligned="false"
+            android:background="@drawable/rounded_button"
             android:onClick="click"
             android:text="Match"
-            android:src="@android:drawable/ic_menu_share"
-            android:visibility="invisible"
-            />
-
+            android:visibility="invisible" />
 
     </FrameLayout>
-
 
 </LinearLayout>
