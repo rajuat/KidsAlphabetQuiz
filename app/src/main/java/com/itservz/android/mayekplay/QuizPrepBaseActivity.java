@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.itservz.android.mayekplay.prep.PrepActivity;
@@ -24,10 +24,10 @@ public class QuizPrepBaseActivity extends Activity implements View.OnClickListen
     protected ViewFlipper viewFlipper;
     protected View currentView;
     protected Result result;
-    protected EditText correctAnswerEditText;
-    protected EditText wrongAttemptsEditText;
-    protected EditText scoreEditText;
-    protected EditText questionTitleEditText;
+    protected TextView correctAnswerTextView;
+    protected TextView wrongAttemptsTextView;
+    protected TextView scoreTextView;
+    protected TextView questionTitleTextView;
     protected String FLIPPER_POSITION = "FLIPPER_POSITION";
     protected String QUESTION_AS_SOUND = "QUESTION_AS_SOUND";
     protected String WRONG_ANSWER = "WRONG_ANSWER";
@@ -53,8 +53,17 @@ public class QuizPrepBaseActivity extends Activity implements View.OnClickListen
         super.onSaveInstanceState(savedInstanceState);
     }
 
-    protected void initialize(Bundle savedInstanceState) {
-        if (savedInstanceState != null) {
+    protected void initialize(Bundle savedInstanceState, boolean userReturns) {
+        viewFlipper = (ViewFlipper) findViewById(R.id.prepFlipperQuiz);
+        viewBuilder = new ViewBuilder();
+        viewBuilder.setViewsToFlipper(this, viewFlipper);
+        if(userReturns){
+            currentView = viewBuilder.getView(0);
+            viewFlipper.setDisplayedChild(viewFlipper.indexOfChild(currentView));
+            questionAsSound = viewBuilder.getQuestionAsSound();
+            result = new Result();
+        }
+        else if (savedInstanceState != null) {
             int flipperPosition = savedInstanceState.getInt(FLIPPER_POSITION);
             viewFlipper.setDisplayedChild(flipperPosition);
             currentView = viewFlipper.getCurrentView();
@@ -75,23 +84,23 @@ public class QuizPrepBaseActivity extends Activity implements View.OnClickListen
         soundButton.setOnClickListener(this);
 
         result.setTotalNoOfQuestions(viewBuilder.getTotalNoOfViews());
-        correctAnswerEditText = (EditText) findViewById(R.id.correct_answers_value);
-        wrongAttemptsEditText = (EditText) findViewById(R.id.wrong_attempts_value);
-        scoreEditText = (EditText) findViewById(R.id.score_value);
-        questionTitleEditText = (EditText) findViewById(R.id.question_title);
-        questionTitleEditText.setText(Mayeks.getInstance().getCardMap().get(questionAsSound).getTitle());
+        correctAnswerTextView = (TextView) findViewById(R.id.correct_answers_value);
+        wrongAttemptsTextView = (TextView) findViewById(R.id.wrong_attempts_value);
+        scoreTextView = (TextView) findViewById(R.id.score_value);
+        questionTitleTextView = (TextView) findViewById(R.id.question_title);
+        questionTitleTextView.setText(Mayeks.getInstance().getCardMap().get(questionAsSound).getTitle());
     }
 
     protected void generateNextQuestion() {
-        /*if (viewFlipper.getDisplayedChild() < viewBuilder.getTotalNoOfViews() - 1) {
+        if (viewFlipper.getDisplayedChild() < viewBuilder.getTotalNoOfViews() - 1) {
             questionAsSound = viewBuilder.getQuestionAsSound();
             viewBuilder.build(viewFlipper.getDisplayedChild() + 1, questionAsSound);
             mayekSoundPoolPlayer.playShortResource(questionAsSound);
-            questionTitleEditText.setText(Mayeks.getInstance().getCardMap().get(questionAsSound).getTitle());
+            questionTitleTextView.setText(Mayeks.getInstance().getCardMap().get(questionAsSound).getTitle());
             viewFlipper.showNext();
             currentView = viewFlipper.getCurrentView();
             ANSWER_SELECTED =  false;
-        } else */{
+        } else {
             final Dialog endDialog = new Dialog(this);
             endDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             endDialog.setContentView(R.layout.activity_quiz_end);
@@ -104,17 +113,26 @@ public class QuizPrepBaseActivity extends Activity implements View.OnClickListen
                 }
             });
 
-            EditText scoreAllEditText = (EditText) endDialog.findViewById(R.id.score_value_all);
+            Button playAgainBtn = (Button) endDialog.findViewById(R.id.quiz_dailog_play_again);
+            playAgainBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    endDialog.dismiss();
+                    initialize(null, true);
+                }
+            });
+
+            TextView scoreAllTextView = (TextView) endDialog.findViewById(R.id.score_value_all);
             if (this instanceof PrepActivity) {
-                scoreAllEditText.setText("Take quiz :-)");
+                scoreAllTextView.setText("Take quiz :-)");
             } else {
-                scoreAllEditText.setText("" + result.getScore());
+                scoreAllTextView.setText("" + result.getScore());
             }
-            EditText correctAnswerAllEditText = (EditText) endDialog.findViewById(R.id.correct_answers_value_all);
-            correctAnswerAllEditText.setText("" + result.getNoOfCorrectAnswers());
-            EditText wrongAttemptsAllEditText = (EditText) endDialog.findViewById(R.id.wrong_attempts_value_all);
-            wrongAttemptsAllEditText.setText("" + result.getAccumulatedWrongAttempts());
-            EditText totalQuestion = (EditText) endDialog.findViewById(R.id.total_no_questions_value);
+            TextView correctAnswerAllTextView = (TextView) endDialog.findViewById(R.id.correct_answers_value_all);
+            correctAnswerAllTextView.setText("" + result.getNoOfCorrectAnswers());
+            TextView wrongAttemptsAllTextView = (TextView) endDialog.findViewById(R.id.wrong_attempts_value_all);
+            wrongAttemptsAllTextView.setText("" + result.getAccumulatedWrongAttempts());
+            TextView totalQuestion = (TextView) endDialog.findViewById(R.id.total_no_questions_value);
             totalQuestion.setText("" + viewBuilder.getTotalNoOfViews());
             endDialog.show();
         }
@@ -124,7 +142,7 @@ public class QuizPrepBaseActivity extends Activity implements View.OnClickListen
 
         int completed = result.getNoOfCorrectAnswers() + result.getAccumulatedWrongAttempts();
         int total = result.getTotalNoOfQuestions()+result.getAccumulatedWrongAttempts();
-        EditText progress = (EditText) findViewById(R.id.progress_quiz);
+        TextView progress = (TextView) findViewById(R.id.progress_quiz);
         progress.setText("" + completed + " / " + total);
     }
 

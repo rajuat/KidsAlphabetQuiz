@@ -1,7 +1,10 @@
 package com.itservz.android.mayekplay;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -63,7 +66,7 @@ public class MainActivity extends Activity {
 
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) visualButton.getLayoutParams();
         layoutParams.rightMargin += (int) (visualButton.getWidth() * 0);
-        layoutParams.bottomMargin += (int) (visualButton.getHeight() * 2.25);
+        layoutParams.bottomMargin += (int) (visualButton.getHeight() * 2.15);
         visualButton.setLayoutParams(layoutParams);
         visualButton.startAnimation(visualShow);
         visualButton.setClickable(true);
@@ -83,7 +86,7 @@ public class MainActivity extends Activity {
         quizButton.setClickable(true);
 
         FrameLayout.LayoutParams layoutParams4 = (FrameLayout.LayoutParams) matchButton.getLayoutParams();
-        layoutParams4.rightMargin += (int) (matchButton.getWidth() * 2.25);
+        layoutParams4.rightMargin += (int) (matchButton.getWidth() * 2.15);
         layoutParams4.bottomMargin += (int) (matchButton.getHeight() * 0);
         matchButton.setLayoutParams(layoutParams4);
         matchButton.startAnimation(matchShow);
@@ -95,7 +98,7 @@ public class MainActivity extends Activity {
 
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) visualButton.getLayoutParams();
         layoutParams.rightMargin -= (int) (visualButton.getWidth() * 0);
-        layoutParams.bottomMargin -= (int) (visualButton.getHeight() * 2.25);
+        layoutParams.bottomMargin -= (int) (visualButton.getHeight() * 2.15);
         visualButton.setLayoutParams(layoutParams);
         visualButton.startAnimation(visualHide);
         visualButton.setClickable(false);
@@ -115,7 +118,7 @@ public class MainActivity extends Activity {
         quizButton.setClickable(false);
 
         FrameLayout.LayoutParams layoutParams4 = (FrameLayout.LayoutParams) matchButton.getLayoutParams();
-        layoutParams4.rightMargin -= (int) (matchButton.getWidth() * 2.25);
+        layoutParams4.rightMargin -= (int) (matchButton.getWidth() * 2.15);
         layoutParams4.bottomMargin -= (int) (matchButton.getHeight() * 0);
         matchButton.setLayoutParams(layoutParams4);
         matchButton.startAnimation(matchHide);
@@ -133,17 +136,51 @@ public class MainActivity extends Activity {
             }
 
         } else if (view.getId() == R.id.goToVisual) {
+            hideMenu();
+            optionVisible = false;
             Intent intent = new Intent(getBaseContext(), VisualActivity.class);
             startActivity(intent);
         } else if (view.getId() == R.id.goToPrep) {
+            hideMenu();
+            optionVisible = false;
             Intent intent = new Intent(getBaseContext(), PrepActivity.class);
             startActivity(intent);
         } else if (view.getId() == R.id.goToQuiz) {
+            hideMenu();
+            optionVisible = false;
             Intent intent = new Intent(getBaseContext(), QuizActivity.class);
             startActivity(intent);
         } else if (view.getId() == R.id.goToMatch) {
+            hideMenu();
+            optionVisible = false;
             Intent intent = new Intent(getBaseContext(), MatchActivity.class);
             startActivity(intent);
+        } else if (view.getId() == R.id.info) {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+            alertDialogBuilder.setMessage("Nungairibo? Mayek yekpagi app amasu lei, pambra?");
+
+            alertDialogBuilder.setPositiveButton("Hoi", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface arg0, int arg1) {
+                    final String appPackageName = "com.itservz.android.mayekid";
+                    try {
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                    } catch (android.content.ActivityNotFoundException anfe) {
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+                    }
+                }
+            });
+
+            alertDialogBuilder.setNegativeButton("Pamde", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
+
         }
     }
 }

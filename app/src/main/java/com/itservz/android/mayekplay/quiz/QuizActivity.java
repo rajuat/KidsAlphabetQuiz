@@ -6,14 +6,12 @@ import android.os.CountDownTimer;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ViewFlipper;
 
 import com.facebook.FacebookSdk;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.itservz.android.mayekplay.QuizPrepBaseActivity;
 import com.itservz.android.mayekplay.R;
-import com.itservz.android.mayekplay.ViewBuilder;
 
 public class QuizActivity extends QuizPrepBaseActivity {
     public static String CORRECT_ANSWER = "correct_answer";
@@ -28,20 +26,16 @@ public class QuizActivity extends QuizPrepBaseActivity {
         setContentView(R.layout.activity_quiz);
 
         AdView adView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice("A0A3D2227CBAA74DAC3C250E4861EED3")
+                .build();
         adView.loadAd(adRequest);
-
-        viewFlipper = (ViewFlipper) findViewById(R.id.prepFlipperQuiz);
-
-        viewBuilder = new ViewBuilder();
-        viewBuilder.setViewsToFlipper(this, viewFlipper);
-        initialize(savedInstanceState);
-
+        initialize(savedInstanceState, false);
     }
 
     public void answered(final View view) {
         ANSWER_SELECTED = true;
-        viewBuilder.resetBackgroundColor(viewFlipper.getDisplayedChild());
+        //viewBuilder.resetBackgroundColor(viewFlipper.getDisplayedChild());
         if (view.getTag() != null && view.getTag().equals(CORRECT_ANSWER)) {
 
             new CountDownTimer(700, 700) {
@@ -52,11 +46,12 @@ public class QuizActivity extends QuizPrepBaseActivity {
                 public void onFinish() {
                     CORRECT_ANSWER_SELECTED = true;
                     result.incrementNoOfCorrectAnswers();
-                    correctAnswerEditText.setText("" + result.getNoOfCorrectAnswers());
+                    correctAnswerTextView.setText("" + result.getNoOfCorrectAnswers());
                     result.setScore(result.getScore()+result.getNoOfCorrectAnswers());
-                    scoreEditText.setText(""+result.getScore());
+                    scoreTextView.setText(""+result.getScore());
                     generateNextQuestion();
                     setProgress();
+                    view.setBackgroundColor(Color.TRANSPARENT);
                 }
             }.start();
         } else {
@@ -68,11 +63,12 @@ public class QuizActivity extends QuizPrepBaseActivity {
                 public void onFinish() {
                     CORRECT_ANSWER_SELECTED = false;
                     result.incrementAccumulatedWrongAttempts();
-                    wrongAttemptsEditText.setText("" + result.getAccumulatedWrongAttempts());
+                    wrongAttemptsTextView.setText("" + result.getAccumulatedWrongAttempts());
                     result.setScore(result.getScore()-result.getAccumulatedWrongAttempts());
-                    scoreEditText.setText(""+(result.getScore()));
+                    scoreTextView.setText(""+(result.getScore()));
                     viewBuilder.build(viewFlipper.getDisplayedChild(), questionAsSound);
                     setProgress();
+                    view.setBackgroundColor(Color.TRANSPARENT);
                 }
             }.start();
         }

@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ViewFlipper;
 
-import com.itservz.android.mayekplay.match.MatchActivity;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -264,7 +262,7 @@ public class ViewBuilder {
         }
 
         for (ImageView imageView : imageViews) {
-            imageView.setBackgroundColor(Color.WHITE);
+            imageView.setBackgroundColor(Color.TRANSPARENT);
         }
     }
 

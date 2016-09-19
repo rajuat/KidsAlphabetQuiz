@@ -14,24 +14,24 @@
         android:layout_gravity="center_horizontal"
         />
 
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ellipsize="none"
-        android:maxLines="100"
-        android:scrollHorizontally="false"
-        android:text="Amuktanga try toudana :-)"
-        android:layout_gravity="center_horizontal" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight=".15">
+        android:orientation="horizontal"
+        >
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".50"
+            android:id="@+id/match_dailog_play_again"
+            android:text="Amuka sanage"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".50"
             android:id="@+id/match_dailog_close"
-            android:text="Close"/>
+            android:text="Atopa sanage"/>
 
     </LinearLayout>
 

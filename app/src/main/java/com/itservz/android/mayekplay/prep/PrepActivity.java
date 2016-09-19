@@ -5,13 +5,11 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.view.Window;
-import android.widget.ViewFlipper;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.itservz.android.mayekplay.QuizPrepBaseActivity;
 import com.itservz.android.mayekplay.R;
-import com.itservz.android.mayekplay.ViewBuilder;
 
 public class PrepActivity extends QuizPrepBaseActivity {
 
@@ -23,41 +21,40 @@ public class PrepActivity extends QuizPrepBaseActivity {
         setContentView(R.layout.activity_quiz);
 
         AdView adView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice("A0A3D2227CBAA74DAC3C250E4861EED3")
+                .build();
         adView.loadAd(adRequest);
-
-        viewFlipper = (ViewFlipper) findViewById(R.id.prepFlipperQuiz);
-        viewBuilder = new ViewBuilder();
-        viewBuilder.setViewsToFlipper(this, viewFlipper);
-        initialize(savedInstanceState);
+        initialize(savedInstanceState, false);
     }
 
     public void answered(final View view) {
         ANSWER_SELECTED = true;
-        viewBuilder.resetBackgroundColor(viewFlipper.getDisplayedChild());
+        //viewBuilder.resetBackgroundColor(viewFlipper.getDisplayedChild());
         if (view.getTag() != null && view.getTag().equals(CORRECT_ANSWER)) {
-            new CountDownTimer(300, 300) {
+            new CountDownTimer(700, 700) {
                 public void onTick(long millisUntilFinished) {
                     view.setBackgroundColor(Color.GREEN);
                 }
 
                 public void onFinish() {
                     result.incrementNoOfCorrectAnswers();
-                    correctAnswerEditText.setText("" + result.getNoOfCorrectAnswers());
+                    correctAnswerTextView.setText("" + result.getNoOfCorrectAnswers());
                     generateNextQuestion();
+                    view.setBackgroundColor(Color.TRANSPARENT);
                 }
             }.start();
         } else {
-            new CountDownTimer(300, 300) {
+            new CountDownTimer(700, 700) {
                 public void onTick(long millisUntilFinished) {
                     view.setBackgroundColor(Color.RED);
                 }
 
                 public void onFinish() {
-                    view.setBackgroundColor(Color.WHITE);
                     result.incrementAccumulatedWrongAttempts();
-                    wrongAttemptsEditText.setText("" + result.getAccumulatedWrongAttempts());
+                    wrongAttemptsTextView.setText("" + result.getAccumulatedWrongAttempts());
                     viewBuilder.build(viewFlipper.getDisplayedChild(), questionAsSound);
+                    view.setBackgroundColor(Color.TRANSPARENT);
                 }
             }.start();
         }

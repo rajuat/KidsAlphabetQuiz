@@ -1,9 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bgmayekplay"
+    android:background="@drawable/bgp"
     android:orientation="vertical"
     tools:context="com.itservz.android.mayekplay.MainActivity">
 
@@ -20,83 +19,100 @@
         android:textSize="50sp"
         android:textStyle="bold" />
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="283dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_gravity="bottom|right"
-        android:layout_weight=".60">
+        android:layout_weight=".60"
+        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/fab"
-            android:layout_width="69dp"
-            android:layout_height="69dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_gravity="right|bottom"
-            android:baselineAligned="false"
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
             android:onClick="click"
-            android:background="@drawable/rounded_button"
-            android:text="Hourase :-)"
-             />
+            android:src="@android:drawable/ic_menu_info_details"/>
 
-        <Button
-            android:id="@+id/goToVisual"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_gravity="right|bottom"
-            android:baselineAligned="false"
-            android:background="@drawable/rounded_button"
-            android:onClick="click"
-            android:text="Quick"
-            android:visibility="invisible" />
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="283dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|right"
+            android:layout_weight=".90">
 
-        <Button
-            android:id="@+id/goToPrep"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_gravity="right|bottom"
-            android:baselineAligned="false"
-            android:background="@drawable/rounded_button"
-            android:onClick="click"
-            android:text="Prep"
-            android:visibility="invisible" />
+            <Button
+                android:id="@+id/fab"
+                android:layout_width="74dp"
+                android:layout_height="74dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right|bottom"
+                android:background="@drawable/rounded_button"
+                android:baselineAligned="false"
+                android:onClick="click"
+                android:text="Hourase :)"
+                android:textColor="#ffffff" />
 
-        <Button
-            android:id="@+id/goToQuiz"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_gravity="right|bottom"
-            android:baselineAligned="false"
-            android:background="@drawable/rounded_button"
-            android:onClick="click"
-            android:text="Quiz"
-            android:visibility="invisible" />
+            <Button
+                android:id="@+id/goToVisual"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right|bottom"
+                android:background="@drawable/rounded_button"
+                android:baselineAligned="false"
+                android:onClick="click"
+                android:text="Quick"
+                android:textColor="#ffffff"
+                android:visibility="invisible" />
 
-        <Button
-            android:id="@+id/goToMatch"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_gravity="right|bottom"
-            android:baselineAligned="false"
-            android:background="@drawable/rounded_button"
-            android:onClick="click"
-            android:text="Match"
-            android:visibility="invisible" />
+            <Button
+                android:id="@+id/goToPrep"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right|bottom"
+                android:background="@drawable/rounded_button"
+                android:baselineAligned="false"
+                android:onClick="click"
+                android:text="Prep"
+                android:textColor="#ffffff"
+                android:visibility="invisible" />
 
-    </FrameLayout>
+            <Button
+                android:id="@+id/goToQuiz"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right|bottom"
+                android:background="@drawable/rounded_button"
+                android:baselineAligned="false"
+                android:onClick="click"
+                android:text="Quiz"
+                android:textColor="#ffffff"
+                android:visibility="invisible" />
 
+            <Button
+                android:id="@+id/goToMatch"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right|bottom"
+                android:background="@drawable/rounded_button"
+                android:baselineAligned="false"
+                android:onClick="click"
+                android:text="Match"
+                android:textColor="#ffffff"
+                android:visibility="invisible" />
+
+        </FrameLayout>
+    </LinearLayout>
 </LinearLayout>

@@ -38,7 +38,9 @@ public class MatchActivity extends Activity {
         setContentView(R.layout.activity_match);
 
         AdView adView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice("A0A3D2227CBAA74DAC3C250E4861EED3")
+                .build();
         adView.loadAd(adRequest);
 
         viewBuilder = new ViewBuilder();
@@ -87,34 +89,38 @@ public class MatchActivity extends Activity {
             public void onStopTrackingTouch(SeekBar seekBar) {
                 int progress = seekBar.getProgress();
                 squares = progress;
-                if (progress == 4) {
-                    viewStub4.setVisibility(View.VISIBLE);
-                    viewStub6.setVisibility(View.GONE);
-                    viewStub8.setVisibility(View.GONE);
-                    viewStub10121416.setVisibility(View.GONE);
-                    viewBuilder.buildMatch(viewStub4, progress);
-                } else if (progress == 6) {
-                    viewStub4.setVisibility(View.GONE);
-                    viewStub6.setVisibility(View.VISIBLE);
-                    viewStub8.setVisibility(View.GONE);
-                    viewStub10121416.setVisibility(View.GONE);
-                    viewBuilder.buildMatch(viewStub6, progress);
-                } else if (progress == 8) {
-                    viewStub4.setVisibility(View.GONE);
-                    viewStub6.setVisibility(View.GONE);
-                    viewStub8.setVisibility(View.VISIBLE);
-                    viewStub10121416.setVisibility(View.GONE);
-                    viewBuilder.buildMatch(viewStub8, seekBar.getProgress());
-                } else if ((progress == 10) || (progress == 12) || (progress == 14) || (progress == 16)) {
-                    viewStub4.setVisibility(View.GONE);
-                    viewStub6.setVisibility(View.GONE);
-                    viewStub8.setVisibility(View.GONE);
-                    viewStub10121416.setVisibility(View.VISIBLE);
-                    viewBuilder.buildMatch(viewStub10121416, progress);
-                }
+                buildLayout(progress);
             }
 
         });
+    }
+
+    private void buildLayout(int progress) {
+        if (progress == 4) {
+            viewStub4.setVisibility(View.VISIBLE);
+            viewStub6.setVisibility(View.GONE);
+            viewStub8.setVisibility(View.GONE);
+            viewStub10121416.setVisibility(View.GONE);
+            viewBuilder.buildMatch(viewStub4, progress);
+        } else if (progress == 6) {
+            viewStub4.setVisibility(View.GONE);
+            viewStub6.setVisibility(View.VISIBLE);
+            viewStub8.setVisibility(View.GONE);
+            viewStub10121416.setVisibility(View.GONE);
+            viewBuilder.buildMatch(viewStub6, progress);
+        } else if (progress == 8) {
+            viewStub4.setVisibility(View.GONE);
+            viewStub6.setVisibility(View.GONE);
+            viewStub8.setVisibility(View.VISIBLE);
+            viewStub10121416.setVisibility(View.GONE);
+            viewBuilder.buildMatch(viewStub8, progress);
+        } else if ((progress == 10) || (progress == 12) || (progress == 14) || (progress == 16)) {
+            viewStub4.setVisibility(View.GONE);
+            viewStub6.setVisibility(View.GONE);
+            viewStub8.setVisibility(View.GONE);
+            viewStub10121416.setVisibility(View.VISIBLE);
+            viewBuilder.buildMatch(viewStub10121416, progress);
+        }
     }
 
     public void answered(View view) {
@@ -147,6 +153,14 @@ public class MatchActivity extends Activity {
                                 public void onClick(View v) {
                                     endDialog.dismiss();
                                     finish();
+                                }
+                            });
+                            Button playAgainBtn = (Button) endDialog.findViewById(R.id.match_dailog_play_again);
+                            playAgainBtn.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    endDialog.dismiss();
+                                    buildLayout(squares);
                                 }
                             });
                             TextView matchResult = (TextView) endDialog.findViewById(R.id.match_result);
