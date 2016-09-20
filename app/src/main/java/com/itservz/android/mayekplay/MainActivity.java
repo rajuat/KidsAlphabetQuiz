@@ -4,13 +4,16 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.MobileAds;
 import com.itservz.android.mayekplay.match.MatchActivity;
@@ -21,6 +24,7 @@ import com.itservz.android.mayekplay.visual.VisualActivity;
 public class MainActivity extends Activity {
 
     private boolean optionVisible = false;
+    private boolean doubleBackToExitPressedOnce;
 
     private Button visualButton;
     private Button prepButton;
@@ -56,6 +60,7 @@ public class MainActivity extends Activity {
         matchHide = AnimationUtils.loadAnimation(getApplication(), R.anim.match_hide);
 
         setContentView(R.layout.activity_main);
+
         visualButton = (Button) findViewById(R.id.goToVisual);
         prepButton = (Button) findViewById(R.id.goToPrep);
         quizButton = (Button) findViewById(R.id.goToQuiz);
@@ -182,5 +187,24 @@ public class MainActivity extends Activity {
             alertDialog.show();
 
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
     }
 }

@@ -26,10 +26,9 @@ public class MatchActivity extends Activity {
     private View viewStub6;
     private View viewStub8;
     private View viewStub10121416;
-
-    private int squares;
     private int matches;
     private int bounces;
+    private int progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +46,6 @@ public class MatchActivity extends Activity {
 
         viewStub6 = ((ViewStub) findViewById(R.id.stub_prep6)).inflate();
         viewBuilder.buildMatch(viewStub6, 6);
-        squares = 6;
         viewStub4 = ((ViewStub) findViewById(R.id.stub_prep4)).inflate();
         viewStub4.setVisibility(View.GONE);
         viewStub8 = ((ViewStub) findViewById(R.id.stub_prep8)).inflate();
@@ -61,6 +59,7 @@ public class MatchActivity extends Activity {
         final SeekBar seekOpq = (SeekBar) findViewById(R.id.opacity_seek);
         seekOpq.setMax(16);
         seekOpq.setProgress(6);
+        progress = seekOpq.getProgress();
         seekOpq.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -87,8 +86,7 @@ public class MatchActivity extends Activity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                int progress = seekBar.getProgress();
-                squares = progress;
+                progress = seekBar.getProgress();
                 buildLayout(progress);
             }
 
@@ -96,6 +94,7 @@ public class MatchActivity extends Activity {
     }
 
     private void buildLayout(int progress) {
+        matches = 0;
         if (progress == 4) {
             viewStub4.setVisibility(View.VISIBLE);
             viewStub6.setVisibility(View.GONE);
@@ -127,58 +126,66 @@ public class MatchActivity extends Activity {
         if (view instanceof ImageView) {
             final MatchActivity matchActivity = this;
             final ImageView imageView = (ImageView) view;
-            if(imageView.equals(matching)){
-                //clicks the same image twice
+            if (imageView.equals(matching)) {
+                //clicks the same image twice - still clearing the image
                 return;
             }
-            new CountDownTimer(500, 500) {
-                public void onTick(long millisUntilFinished) {
-                    imageView.setImageResource(0);
-                }
-
-                public void onFinish() {
-                    if (!secondClick) {
-                        matching = imageView;
-                        secondClick = true;
-                    } else if (matching.getTag().equals(imageView.getTag())) {
-                        secondClick = false;
-                        matches++;
-                        if(matches == squares/2){
-                            final Dialog endDialog = new Dialog(matchActivity);
-                            endDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                            endDialog.setContentView(R.layout.activity_match_end);
-                            Button smallBtn = (Button) endDialog.findViewById(R.id.match_dailog_close);
-                            smallBtn.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    endDialog.dismiss();
-                                    finish();
-                                }
-                            });
-                            Button playAgainBtn = (Button) endDialog.findViewById(R.id.match_dailog_play_again);
-                            playAgainBtn.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    endDialog.dismiss();
-                                    buildLayout(squares);
-                                }
-                            });
-                            TextView matchResult = (TextView) endDialog.findViewById(R.id.match_result);
-                            String string = "You had " + bounces + " bounces out of " + matches + " matches.";
-                            matchResult.setText(string);
-
-                            endDialog.show();
+            if (!secondClick) {
+                imageView.setImageResource(0);
+                matching = imageView;
+                secondClick = true;
+            } else if (matching.getTag().equals(imageView.getTag())) {
+                imageView.setImageResource(0);
+                secondClick = false;
+                matches++;
+                matching.setClickable(false);
+                imageView.setClickable(false);
+                //end of game
+                if (matches >= progress / 2) {
+                    final Dialog endDialog = new Dialog(matchActivity);
+                    endDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                    endDialog.setContentView(R.layout.activity_match_end);
+                    Button smallBtn = (Button) endDialog.findViewById(R.id.match_dailog_close);
+                    smallBtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            endDialog.dismiss();
+                            finish();
                         }
-                    } else {
-                        imageView.setImageResource(R.drawable.questionmark);
-                        matching.setImageResource(R.drawable.questionmark);
-                        secondClick = false;
-                        bounces++;
-                    }
+                    });
+                    Button playAgainBtn = (Button) endDialog.findViewById(R.id.match_dailog_play_again);
+                    playAgainBtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            endDialog.dismiss();
+                            buildLayout(progress);
+                        }
+                    });
+                    TextView matchResult = (TextView) endDialog.findViewById(R.id.match_result);
+                    String string = "You had " + bounces + " bounces out of " + matches + " matches.";
+                    matchResult.setText(string);
+                    endDialog.show();
                 }
-            }.start();
-
-
+            } else {
+                notMatches(imageView).start();
+            }
         }
     }
+
+    private CountDownTimer notMatches(final ImageView imageView) {
+        return new CountDownTimer(300, 300) {
+            public void onTick(long millisUntilFinished) {
+                imageView.setImageResource(0);
+            }
+
+            public void onFinish() {
+                imageView.setImageResource(R.drawable.questionmark);
+                matching.setImageResource(R.drawable.questionmark);
+                secondClick = false;
+                bounces++;
+            }
+        };
+    }
+
 }
+

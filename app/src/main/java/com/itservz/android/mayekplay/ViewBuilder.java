@@ -175,6 +175,10 @@ public class ViewBuilder {
         } else if(noOfCards == 16){
             views = QuestionViews.getViews16(view);
         }
+        //checking to enable user restart
+        for(View v: views){
+            v.setClickable(true);
+        }
         List<ImageView> addedViews = new ArrayList<>();
         //for each play the mayeks can be repeated
         askedQuestions = new ArrayList<>();
