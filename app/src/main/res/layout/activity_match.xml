@@ -86,7 +86,7 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             ads:adSize="BANNER"
-            ads:adUnitId="@string/test_banner_ad_unit_id"
+            ads:adUnitId="@string/banner_ad_unit_id_match"
             android:layout_gravity="bottom">
         </com.google.android.gms.ads.AdView>
     </LinearLayout>

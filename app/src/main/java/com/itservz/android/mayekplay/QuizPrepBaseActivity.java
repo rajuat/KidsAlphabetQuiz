@@ -126,7 +126,11 @@ public class QuizPrepBaseActivity extends Activity implements View.OnClickListen
             if (this instanceof PrepActivity) {
                 scoreAllTextView.setText("Take quiz :-)");
             } else {
-                scoreAllTextView.setText("" + result.getScore());
+                if(result.getScore() < 0){
+                    scoreAllTextView.setText("0 :(");
+                } else {
+                    scoreAllTextView.setText("" + result.getScore());
+                }
             }
             TextView correctAnswerAllTextView = (TextView) endDialog.findViewById(R.id.correct_answers_value_all);
             correctAnswerAllTextView.setText("" + result.getNoOfCorrectAnswers());

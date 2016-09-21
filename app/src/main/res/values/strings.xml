@@ -19,8 +19,9 @@
 
     <string name="test_ad_mob_application_id">ca-app-pub-3940256099942544~3347511713</string>
     <string name="test_banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="ad_mob_application_id"></string>
-    <string name="banner_ad_unit_id_visual"></string>
-    <string name="banner_ad_unit_id_quiz"></string>
-    <string name="banner_ad_unit_id_match"></string>
+
+    <string name="ad_mob_application_id">ca-app-pub-7027483312186624~2667460990</string>
+    <string name="banner_ad_unit_id_visual">ca-app-pub-7027483312186624/4144194194</string>
+    <string name="banner_ad_unit_id_quiz">ca-app-pub-7027483312186624/5620927393</string>
+    <string name="banner_ad_unit_id_match">ca-app-pub-7027483312186624/7097660599</string>
 </resources>

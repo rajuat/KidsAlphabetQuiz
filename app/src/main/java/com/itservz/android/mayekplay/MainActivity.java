@@ -46,7 +46,8 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544~3347511713");
+        //MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544~3347511713"); testads
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-7027483312186624~2667460990");
         visualShow = AnimationUtils.loadAnimation(getApplication(), R.anim.visual_show);
         visualHide = AnimationUtils.loadAnimation(getApplication(), R.anim.visual_hide);
 
