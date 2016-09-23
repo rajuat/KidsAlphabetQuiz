@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".25"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".25"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".30"
+            android:gravity="center_vertical|center_horizontal"
+            android:textSize="16sp"
+            android:text="Let's Play"
+            android:textColor="#ffffff" />
+
+        <RadioGroup
+            android:id="@+id/radioLetters"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".70"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/english"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".50"
+                android:text="ABC"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center_vertical|center_horizontal" />
+
+            <RadioButton
+                android:id="@+id/manipuri"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".50"
+                android:text="KOK SAM LAI"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center_vertical|center_horizontal" />
+
+        </RadioGroup>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".25"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".85"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="There's an app on drawing KOK SAM LAI, try it out."
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/mayekid"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".15"
+            android:text="Ok"
+            android:background="@drawable/rounded_button"
+            android:textColor="#ffffff"
+            android:gravity="center_vertical|center_horizontal" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/rate"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight=".25"
+        android:src="@drawable/rate"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

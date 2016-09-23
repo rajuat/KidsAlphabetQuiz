@@ -2,8 +2,10 @@ package com.itservz.android.mayekplay.match;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.ViewStub;
 import android.view.Window;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.itservz.android.mayekplay.MainActivity;
 import com.itservz.android.mayekplay.R;
 import com.itservz.android.mayekplay.ViewBuilder;
 
@@ -29,6 +32,7 @@ public class MatchActivity extends Activity {
     private int matches;
     private int bounces;
     private int progress;
+    private boolean abc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +46,10 @@ public class MatchActivity extends Activity {
                 .build();
         adView.loadAd(adRequest);
 
-        viewBuilder = new ViewBuilder();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        abc = prefs.getBoolean(MainActivity.ABC, false);
+
+        viewBuilder = new ViewBuilder(abc);
 
         viewStub6 = ((ViewStub) findViewById(R.id.stub_prep6)).inflate();
         viewBuilder.buildMatch(viewStub6, 6);
@@ -173,7 +180,7 @@ public class MatchActivity extends Activity {
     }
 
     private CountDownTimer notMatches(final ImageView imageView) {
-        return new CountDownTimer(300, 300) {
+        return new CountDownTimer(500, 500) {
             public void onTick(long millisUntilFinished) {
                 imageView.setImageResource(0);
             }

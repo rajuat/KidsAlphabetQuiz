@@ -1,18 +1,26 @@
 package com.itservz.android.mayekplay;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.app.Dialog;
 import android.content.Intent;
-import android.content.res.Configuration;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.PixelFormat;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.view.View;
+import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.MobileAds;
@@ -22,6 +30,9 @@ import com.itservz.android.mayekplay.quiz.QuizActivity;
 import com.itservz.android.mayekplay.visual.VisualActivity;
 
 public class MainActivity extends Activity {
+
+    public static String PREFERENCE = "enmn";
+    public static String ABC = "en";
 
     private boolean optionVisible = false;
     private boolean doubleBackToExitPressedOnce;
@@ -42,6 +53,9 @@ public class MainActivity extends Activity {
 
     private Animation matchShow;
     private Animation matchHide;
+    private Dialog dialog;
+    private SharedPreferences.Editor editor;
+    private SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,32 +176,69 @@ public class MainActivity extends Activity {
             Intent intent = new Intent(getBaseContext(), MatchActivity.class);
             startActivity(intent);
         } else if (view.getId() == R.id.info) {
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-            alertDialogBuilder.setMessage("Nungairibo? Mayek yekpagi app amasu lei, pambra?");
 
-            alertDialogBuilder.setPositiveButton("Hoi", new DialogInterface.OnClickListener() {
+            dialog = new Dialog(this, R.style.full_screen_dialog);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setContentView(R.layout.floating_setting);
+            dialog.getWindow().setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+            dialog.getWindow().setFormat(PixelFormat.TRANSLUCENT);
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+            RadioGroup radio = (RadioGroup) dialog.findViewById(R.id.radioLetters);
+            prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            boolean abc = prefs.getBoolean(ABC, false);
+            if (abc) {
+                radio.check(R.id.english);
+            } else {
+                radio.check(R.id.manipuri);
+            }
+
+            dialog.show();
+
+            radio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 @Override
-                public void onClick(DialogInterface arg0, int arg1) {
+                public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
+                    editor = prefs.edit();
+                    RadioButton radioButton = (RadioButton) radioGroup.findViewById(checkedId);
+                    int index = radioGroup.indexOfChild(radioButton);
+                    switch (index) {
+                        case 0:
+                            editor.putBoolean(ABC, true);
+                            editor.commit();
+                            dialog.dismiss();
+                            break;
+                        case 1:
+                            editor.putBoolean(ABC, false);
+                            editor.commit();
+                            dialog.dismiss();
+                            break;
+                    }
+                }
+            });
+
+            Button mayekid = (Button) dialog.findViewById(R.id.mayekid);
+            mayekid.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
                     final String appPackageName = "com.itservz.android.mayekid";
                     try {
                         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
                     } catch (android.content.ActivityNotFoundException anfe) {
                         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
                     }
-                }
-            });
-
-            alertDialogBuilder.setNegativeButton("Pamde", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
                     dialog.dismiss();
                 }
             });
 
-            AlertDialog alertDialog = alertDialogBuilder.create();
-            alertDialog.show();
-
+            ImageView rate = (ImageView) dialog.findViewById(R.id.rate);
+            rate.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.itservz.android.mayekplay")));
+                }
+            });
         }
+
     }
 
     @Override
@@ -204,7 +255,7 @@ public class MainActivity extends Activity {
 
             @Override
             public void run() {
-                doubleBackToExitPressedOnce=false;
+                doubleBackToExitPressedOnce = false;
             }
         }, 2000);
     }

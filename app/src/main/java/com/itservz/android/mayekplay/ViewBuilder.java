@@ -35,12 +35,19 @@ public class ViewBuilder {
     private List<MayekCard> cardList = Mayeks.getInstance().getCardList();
     private List<Integer> keys = Mayeks.getInstance().getKeys();
     private Map<Integer, MayekCard> cardMap = Mayeks.getInstance().getCardMap();
+
+    private List<MayekCard> cardListABC = Alphabets.getInstance().getCardList();
+    private List<Integer> keysABC = Alphabets.getInstance().getKeys();
+    private Map<Integer, MayekCard> cardMapABC = Alphabets.getInstance().getCardMap();
+
     private List<View> views = null;
     private List<Integer> askedQuestions = null;
+    private boolean isABC;
 
-    public ViewBuilder(){
+    public ViewBuilder(boolean abc){
         views = new ArrayList<>();
         askedQuestions = new ArrayList<>();
+        isABC = abc;
     }
 
     public void setViewsToFlipper(QuizPrepBaseActivity prepActivity, ViewFlipper viewFlipper) {
@@ -184,7 +191,12 @@ public class ViewBuilder {
         askedQuestions = new ArrayList<>();
         for (int i = 0; i < noOfCards / 2; i++) {
             Integer question = getQuestionAsSound();
-            int res = cardMap.get(question).getRes();
+            int res;
+            if(isABC){
+                res = cardMapABC.get(question).getRes();
+            } else {
+                res = cardMap.get(question).getRes();
+            }
 
             ImageView match1 = randomViewFromRest(views, addedViews);
             match1.setBackgroundResource(res);
@@ -212,14 +224,18 @@ public class ViewBuilder {
     private void setImages(Integer questionAsSound, List<ImageView> views, int correctAnswerIndex) {
         List<MayekCard> addedViews = new ArrayList<>();
         //correct answer
-        MayekCard card = cardMap.get(questionAsSound);
+        MayekCard card = null;
+        if(isABC){
+            card = cardMapABC.get(questionAsSound);
+        } else {
+            card = cardMap.get(questionAsSound);
+        }
         addedViews.add(card);
         for (int i = 0; i < views.size(); i++) {
             ImageView view = views.get(i);
             //the tags set below are cached
             view.setTag(null);
             if (i == correctAnswerIndex) {
-                Log.d("setImages", card.toString());
                 view.setImageResource(card.getRes());
                 view.setTag(QuizPrepBaseActivity.CORRECT_ANSWER);
             } else {
@@ -272,14 +288,24 @@ public class ViewBuilder {
 
     private MayekCard randomImageFromRest(List<MayekCard> addedCards) {
         Random randomizer = new Random();
-        List<MayekCard> temp = new ArrayList<>(cardList);
+        List<MayekCard> temp = null;
+        if(isABC){
+            temp = new ArrayList<>(cardListABC);
+        } else {
+            temp = new ArrayList<>(cardList);
+        }
         temp.removeAll(addedCards);
         return temp.get(randomizer.nextInt(temp.size()));
     }
 
     public Integer getQuestionAsSound() {
         Random randomizer = new Random();
-        List<Integer> temp = new ArrayList<>(keys);
+        List<Integer> temp = null;
+        if(isABC){
+            temp = new ArrayList<>(keysABC);
+        } else {
+            temp = new ArrayList<>(keys);
+        }
         temp.removeAll(askedQuestions);
         Integer question = temp.get(randomizer.nextInt(temp.size()));
         askedQuestions.add(question);

@@ -2,7 +2,9 @@ package com.itservz.android.mayekplay;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -33,6 +35,7 @@ public class QuizPrepBaseActivity extends Activity implements View.OnClickListen
     protected String WRONG_ANSWER = "WRONG_ANSWER";
     protected String RIGHT_ANSWER = "RIGHT_ANSWER";
     protected String SCORE = "SCORE";
+    private boolean abc;
 
 
     @Override
@@ -54,8 +57,10 @@ public class QuizPrepBaseActivity extends Activity implements View.OnClickListen
     }
 
     protected void initialize(Bundle savedInstanceState, boolean userReturns) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        abc = prefs.getBoolean(MainActivity.ABC, false);
         viewFlipper = (ViewFlipper) findViewById(R.id.prepFlipperQuiz);
-        viewBuilder = new ViewBuilder();
+        viewBuilder = new ViewBuilder(abc);
         viewBuilder.setViewsToFlipper(this, viewFlipper);
         if(userReturns){
             currentView = viewBuilder.getView(0);
@@ -88,7 +93,11 @@ public class QuizPrepBaseActivity extends Activity implements View.OnClickListen
         wrongAttemptsTextView = (TextView) findViewById(R.id.wrong_attempts_value);
         scoreTextView = (TextView) findViewById(R.id.score_value);
         questionTitleTextView = (TextView) findViewById(R.id.question_title);
-        questionTitleTextView.setText(Mayeks.getInstance().getCardMap().get(questionAsSound).getTitle());
+        if(abc){
+            questionTitleTextView.setText(Alphabets.getInstance().getCardMap().get(questionAsSound).getTitle());
+        } else {
+            questionTitleTextView.setText(Mayeks.getInstance().getCardMap().get(questionAsSound).getTitle());
+        }
     }
 
     protected void generateNextQuestion() {
@@ -96,7 +105,12 @@ public class QuizPrepBaseActivity extends Activity implements View.OnClickListen
             questionAsSound = viewBuilder.getQuestionAsSound();
             viewBuilder.build(viewFlipper.getDisplayedChild() + 1, questionAsSound);
             mayekSoundPoolPlayer.playShortResource(questionAsSound);
-            questionTitleTextView.setText(Mayeks.getInstance().getCardMap().get(questionAsSound).getTitle());
+            if(abc){
+                questionTitleTextView.setText(Alphabets.getInstance().getCardMap().get(questionAsSound).getTitle());
+            } else {
+                questionTitleTextView.setText(Mayeks.getInstance().getCardMap().get(questionAsSound).getTitle());
+            }
+
             viewFlipper.showNext();
             currentView = viewFlipper.getCurrentView();
             ANSWER_SELECTED =  false;
