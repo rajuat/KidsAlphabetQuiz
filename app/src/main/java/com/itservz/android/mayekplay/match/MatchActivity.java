@@ -3,6 +3,10 @@ package com.itservz.android.mayekplay.match;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.PixelFormat;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.preference.PreferenceManager;
@@ -11,6 +15,7 @@ import android.view.ViewStub;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -60,10 +65,17 @@ public class MatchActivity extends Activity {
         viewStub10121416 = ((ViewStub) findViewById(R.id.stub_prep16)).inflate();
         viewStub10121416.setVisibility(View.GONE);
         adjustDifficulty();
+
+        if(abc){
+            ((TextView) findViewById(R.id.seek_bar_easy)).setText("  Easy  ");
+            ((TextView) findViewById(R.id.seek_bar_difficult)).setText("Difficult");
+        }
     }
 
     private void adjustDifficulty() {
         final SeekBar seekOpq = (SeekBar) findViewById(R.id.opacity_seek);
+        seekOpq.getProgressDrawable().setColorFilter(0xFF00FF00, PorterDuff.Mode.MULTIPLY);
+        //seekOpq.getThumb().setColorFilter(0xFF00FF00, PorterDuff.Mode.MULTIPLY);
         seekOpq.setMax(16);
         seekOpq.setProgress(6);
         progress = seekOpq.getProgress();
@@ -149,9 +161,15 @@ public class MatchActivity extends Activity {
                 imageView.setClickable(false);
                 //end of game
                 if (matches >= progress / 2) {
-                    final Dialog endDialog = new Dialog(matchActivity);
+                    final Dialog endDialog = new Dialog(matchActivity, R.style.full_screen_dialog);
                     endDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                     endDialog.setContentView(R.layout.activity_match_end);
+                    endDialog.getWindow().setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+                    endDialog.getWindow().setFormat(PixelFormat.TRANSLUCENT);
+                    ColorDrawable drawable = new ColorDrawable(Color.WHITE);
+                    drawable.setAlpha(80);
+                    endDialog.getWindow().setBackgroundDrawable(drawable);
+
                     Button smallBtn = (Button) endDialog.findViewById(R.id.match_dailog_close);
                     smallBtn.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -169,8 +187,13 @@ public class MatchActivity extends Activity {
                         }
                     });
                     TextView matchResult = (TextView) endDialog.findViewById(R.id.match_result);
-                    String string = "You had " + bounces + " bounces out of " + matches + " matches.";
+                    int efficiency = ((matches * 100) / (matches + bounces));
+                    String string = "You had " + bounces + " bounces out of " + matches + " matches. " + efficiency + " % efficient.";
                     matchResult.setText(string);
+                    if(abc){
+                        ((Button) endDialog.findViewById(R.id.match_dailog_play_again)).setText(" Play again ");
+                        ((Button) endDialog.findViewById(R.id.match_dailog_close)).setText("Play another");
+                    }
                     endDialog.show();
                 }
             } else {

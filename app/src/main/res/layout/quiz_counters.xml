@@ -25,8 +25,8 @@
             android:layout_height="wrap_content"
             android:layout_weight=".34"
             android:text="DUMMY"
-            android:textColor="#ffffff"
-            android:textSize="16sp"
+            android:textColor="#BA4A00"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <TextView
@@ -35,8 +35,8 @@
             android:layout_height="wrap_content"
             android:layout_weight=".26"
             android:text="Progress"
-            android:textColor="#ffffff"
-            android:textSize="16sp"
+            android:textColor="#BA4A00"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -44,8 +44,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".20"
-            android:textColor="#ffffff"
-            android:textSize="16sp"
+            android:textColor="#BA4A00"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -62,8 +62,8 @@
             android:layout_height="match_parent"
             android:layout_weight=".23"
             android:text="Score:"
-            android:textColor="#ffffff"
-            android:textSize="16sp"
+            android:textColor="#BA4A00"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -72,8 +72,8 @@
             android:layout_height="match_parent"
             android:layout_weight=".11"
             android:inputType="number"
-            android:textColor="#ffffff"
-            android:textSize="16sp"
+            android:textColor="#BA4A00"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -82,8 +82,8 @@
             android:layout_height="match_parent"
             android:layout_weight=".23"
             android:text="Yayy:"
-            android:textColor="#ffffff"
-            android:textSize="16sp"
+            android:textColor="#BA4A00"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -92,8 +92,8 @@
             android:layout_height="match_parent"
             android:layout_weight=".10"
             android:inputType="number"
-            android:textColor="#ffffff"
-            android:textSize="16sp"
+            android:textColor="#BA4A00"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -102,8 +102,8 @@
             android:layout_height="match_parent"
             android:layout_weight=".23"
             android:text="Oops:"
-            android:textColor="#ffffff"
-            android:textSize="16sp"
+            android:textColor="#BA4A00"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -112,8 +112,8 @@
             android:layout_height="match_parent"
             android:layout_weight=".10"
             android:inputType="number"
-            android:textColor="#ffffff"
-            android:textSize="16sp"
+            android:textColor="#BA4A00"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
     </LinearLayout>

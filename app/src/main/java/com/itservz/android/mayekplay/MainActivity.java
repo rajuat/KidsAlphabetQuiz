@@ -2,15 +2,19 @@ package com.itservz.android.mayekplay;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.support.v7.widget.AppCompatRadioButton;
 import android.view.View;
 import android.view.Window;
 import android.view.animation.Animation;
@@ -21,6 +25,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.MobileAds;
@@ -31,7 +36,6 @@ import com.itservz.android.mayekplay.visual.VisualActivity;
 
 public class MainActivity extends Activity {
 
-    public static String PREFERENCE = "enmn";
     public static String ABC = "en";
 
     private boolean optionVisible = false;
@@ -56,6 +60,7 @@ public class MainActivity extends Activity {
     private Dialog dialog;
     private SharedPreferences.Editor editor;
     private SharedPreferences prefs;
+    private boolean abc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +85,24 @@ public class MainActivity extends Activity {
         prepButton = (Button) findViewById(R.id.goToPrep);
         quizButton = (Button) findViewById(R.id.goToQuiz);
         matchButton = (Button) findViewById(R.id.goToMatch);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setLocaleText();
+    }
+
+    private void setLocaleText() {
+        prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        abc = prefs.getBoolean(ABC, false);
+        if(abc){
+            ((Button)findViewById(R.id.fab)).setText(" Start ");
+            ((TextView) findViewById(R.id.title)).setText("Let's play Mayek :-)");
+        } else {
+            ((Button)findViewById(R.id.fab)).setText("Hourase");
+            ((TextView) findViewById(R.id.title)).setText("Mayek sanase :-)");
+        }
     }
 
     private void expandMenu() {
@@ -156,6 +179,9 @@ public class MainActivity extends Activity {
             }
 
         } else if (view.getId() == R.id.goToVisual) {
+            if(abc){
+                Toast.makeText(this, "Choose KOK SAM LAI option to use this.", Toast.LENGTH_SHORT).show();
+            }
             hideMenu();
             optionVisible = false;
             Intent intent = new Intent(getBaseContext(), VisualActivity.class);
@@ -176,15 +202,23 @@ public class MainActivity extends Activity {
             Intent intent = new Intent(getBaseContext(), MatchActivity.class);
             startActivity(intent);
         } else if (view.getId() == R.id.info) {
-
             dialog = new Dialog(this, R.style.full_screen_dialog);
-            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.setContentView(R.layout.floating_setting);
             dialog.getWindow().setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
             dialog.getWindow().setFormat(PixelFormat.TRANSLUCENT);
-            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            ColorDrawable drawable = new ColorDrawable(Color.WHITE);
+            drawable.setAlpha(80);
+            dialog.getWindow().setBackgroundDrawable(drawable);
 
             RadioGroup radio = (RadioGroup) dialog.findViewById(R.id.radioLetters);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                for (int i = 0; i < radio.getChildCount(); i++) {
+                    RadioButton button = (RadioButton) radio.getChildAt(i);
+                    //button.setBackground(new ColorDrawable(Color.WHITE));
+                    button.setButtonTintList(colorStateList);
+                    button.invalidate();
+                }
+            }
             prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
             boolean abc = prefs.getBoolean(ABC, false);
             if (abc) {
@@ -206,11 +240,13 @@ public class MainActivity extends Activity {
                             editor.putBoolean(ABC, true);
                             editor.commit();
                             dialog.dismiss();
+                            setLocaleText();
                             break;
                         case 1:
                             editor.putBoolean(ABC, false);
                             editor.commit();
                             dialog.dismiss();
+                            setLocaleText();
                             break;
                     }
                 }
@@ -223,7 +259,7 @@ public class MainActivity extends Activity {
                     final String appPackageName = "com.itservz.android.mayekid";
                     try {
                         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
-                    } catch (android.content.ActivityNotFoundException anfe) {
+                    } catch (ActivityNotFoundException anfe) {
                         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
                     }
                     dialog.dismiss();
@@ -237,9 +273,29 @@ public class MainActivity extends Activity {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.itservz.android.mayekplay")));
                 }
             });
+
+            Button back = (Button) dialog.findViewById(R.id.backToMainPage);
+            back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialog.dismiss();
+                }
+            });
         }
 
     }
+
+    ColorStateList colorStateList = new ColorStateList(
+            new int[][]{
+                    new int[]{-android.R.attr.state_checked},
+                    new int[]{android.R.attr.state_checked}
+            },
+            new int[]{
+
+                    Color.WHITE
+                    , Color.parseColor("#BA4A00"),
+            }
+    );
 
     @Override
     public void onBackPressed() {

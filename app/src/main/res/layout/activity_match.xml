@@ -13,12 +13,13 @@
         android:layout_height="0dp"
         android:layout_weight=".10"
         android:orientation="horizontal">
-        <EditText
+        <TextView
             android:layout_width="0dp"
+            android:id="@+id/seek_bar_easy"
             android:layout_height="match_parent"
             android:layout_weight=".27"
-            android:textColor="#ffffff"
-            android:textSize="16sp"
+            android:textColor="#BA4A00"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:text="Laiba"
             />
@@ -28,12 +29,13 @@
             android:layout_height="match_parent"
             android:layout_weight=".46"
             android:layout_margin="5dp" />
-        <EditText
+        <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:id="@+id/seek_bar_difficult"
             android:layout_weight=".27"
-            android:textColor="#ffffff"
-            android:textSize="16sp"
+            android:textColor="#BA4A00"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:text="Looba"
             />
