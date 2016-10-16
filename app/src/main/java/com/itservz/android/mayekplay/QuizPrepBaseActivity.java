@@ -64,7 +64,7 @@ public class QuizPrepBaseActivity extends Activity implements View.OnClickListen
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         abc = prefs.getBoolean(MainActivity.ABC, false);
         viewFlipper = (ViewFlipper) findViewById(R.id.prepFlipperQuiz);
-        viewBuilder = new ViewBuilder(abc);
+        viewBuilder = new ViewBuilder(abc, getApplicationContext());
         viewBuilder.setViewsToFlipper(this, viewFlipper);
         if (userReturns) {
             currentView = viewBuilder.getView(0);
