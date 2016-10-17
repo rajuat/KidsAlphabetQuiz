@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="center">
-        <ImageView
+        <TextView
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_margin="16dp"
@@ -19,7 +19,7 @@
             android:id="@+id/prep41"
             android:onClick="answered" />
 
-        <ImageView
+        <TextView
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_margin="16dp"
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="center_horizontal">
-        <ImageView
+        <TextView
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_margin="16dp"
@@ -44,7 +44,7 @@
             android:onClick="answered"
              />
 
-        <ImageView
+        <TextView
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_margin="16dp"

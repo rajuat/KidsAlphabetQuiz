@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
-    <ImageView
+    <TextView
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_margin="16dp"
@@ -14,7 +14,7 @@
         android:layout_toRightOf="@+id/prep53"
         android:layout_toEndOf="@+id/prep53" />
 
-    <ImageView
+    <TextView
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_margin="16dp"
@@ -24,7 +24,7 @@
         android:layout_toLeftOf="@+id/prep51"
         android:layout_toStartOf="@+id/prep51" />
 
-    <ImageView
+    <TextView
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_margin="16dp"
@@ -32,7 +32,7 @@
         android:onClick="answered"
         android:layout_centerHorizontal="true" />
 
-    <ImageView
+    <TextView
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:id="@+id/prep54"
@@ -41,7 +41,7 @@
         android:layout_toLeftOf="@+id/prep55"
         android:layout_toStartOf="@+id/prep55" />
 
-    <ImageView
+    <TextView
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_margin="16dp"

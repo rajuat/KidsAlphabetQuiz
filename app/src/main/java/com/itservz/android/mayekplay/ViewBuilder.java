@@ -8,11 +8,14 @@ import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.LightingColorFilter;
 import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
+
+import com.itservz.android.mayekplay.font.MyFont;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -123,39 +126,39 @@ public class ViewBuilder {
     public void build(int viewIndex, int questionAsSound) {
         // get a sound to be played
         if (viewIndex == 0) {
-            List<ImageView> views2 = QuestionViews.getViews2(view2);
+            List<TextView> views2 = QuestionViews.getViews2(view2);
             int correctAnswerIndex = new Random().nextInt(1);
             setImages(questionAsSound, views2, correctAnswerIndex);
         } else if (viewIndex == 1) {
-            List<ImageView> views3 = QuestionViews.getViews3(view3);
+            List<TextView> views3 = QuestionViews.getViews3(view3);
             int correctAnswerIndex = new Random().nextInt(2);
             setImages(questionAsSound, views3, correctAnswerIndex);
         } else if (viewIndex == 2) {
-            List<ImageView> views4 = QuestionViews.getViews4(view4);
+            List<TextView> views4 = QuestionViews.getViews4(view4);
             int correctAnswerIndex = new Random().nextInt(3);
             setImages(questionAsSound, views4, correctAnswerIndex);
         } else if (viewIndex == 3) {
-            List<ImageView> views5 = QuestionViews.getViews5(view5);
+            List<TextView> views5 = QuestionViews.getViews5(view5);
             int correctAnswerIndex = new Random().nextInt(4);
             setImages(questionAsSound, views5, correctAnswerIndex);
         } else if (viewIndex == 4) {
-            List<ImageView> views6 = QuestionViews.getViews6(view6);
+            List<TextView> views6 = QuestionViews.getViews6(view6);
             int correctAnswerIndex = new Random().nextInt(5);
             setImages(questionAsSound, views6, correctAnswerIndex);
         } else if (viewIndex == 5) {
-            List<ImageView> views7 = QuestionViews.getViews7(view7);
+            List<TextView> views7 = QuestionViews.getViews7(view7);
             int correctAnswerIndex = new Random().nextInt(6);
             setImages(questionAsSound, views7, correctAnswerIndex);
         } else if (viewIndex == 6) {
-            List<ImageView> views8 = QuestionViews.getViews8(view8);
+            List<TextView> views8 = QuestionViews.getViews8(view8);
             int correctAnswerIndex = new Random().nextInt(7);
             setImages(questionAsSound, views8, correctAnswerIndex);
         } else if (viewIndex == 7) {
-            List<ImageView> views9 = QuestionViews.getViews9(view9);
+            List<TextView> views9 = QuestionViews.getViews9(view9);
             int correctAnswerIndex = new Random().nextInt(8);
             setImages(questionAsSound, views9, correctAnswerIndex);
         } else if (viewIndex == 8) {
-            List<ImageView> views10 = QuestionViews.getViews10(view10);
+            List<TextView> views10 = QuestionViews.getViews10(view10);
             int correctAnswerIndex = new Random().nextInt(9);
             setImages(questionAsSound, views10, correctAnswerIndex);
         } else if (viewIndex == 9) {
@@ -181,7 +184,7 @@ public class ViewBuilder {
 
     public void buildMatch(View view, int noOfCards) {
         Log.d("ViewBuilder buildmatch", "" + noOfCards);
-        List<ImageView> views = null;
+        List<TextView> views = null;
         if (noOfCards == 4) {
             views = QuestionViews.getViews4(view);
         } else if (noOfCards == 6) {
@@ -201,7 +204,7 @@ public class ViewBuilder {
         for (View v : views) {
             v.setClickable(true);
         }
-        List<ImageView> addedViews = new ArrayList<>();
+        List<TextView> addedViews = new ArrayList<>();
         //for each play the mayeks can be repeated
         askedQuestions = new ArrayList<>();
         for (int i = 0; i < noOfCards / 2; i++) {
@@ -213,30 +216,30 @@ public class ViewBuilder {
                 res = cardMap.get(question).getRes();
             }
 
-            ImageView match1 = randomViewFromRest(views, addedViews);
+            TextView match1 = randomViewFromRest(views, addedViews);
             match1.setBackgroundResource(res);
             match1.setTag(res);
-            match1.setImageResource(R.drawable.questionmark);
+            match1.setBackgroundResource(R.drawable.questionmark);
             addedViews.add(match1);
 
-            ImageView match2 = randomViewFromRest(views, addedViews);
+            TextView match2 = randomViewFromRest(views, addedViews);
             match2.setBackgroundResource(res);
             match2.setTag(res);
-            match2.setImageResource(R.drawable.questionmark);
+            match2.setBackgroundResource(R.drawable.questionmark);
             addedViews.add(match2);
         }
     }
 
-    private ImageView randomViewFromRest(List<ImageView> views, List<ImageView> addedViews) {
+    private TextView randomViewFromRest(List<TextView> views, List<TextView> addedViews) {
         Random randomizer = new Random();
-        List<ImageView> temp = new ArrayList<>(views);
+        List<TextView> temp = new ArrayList<>(views);
         temp.removeAll(addedViews);
-        ImageView imageView = temp.get(randomizer.nextInt(temp.size()));
-        int indexOf = views.indexOf(imageView);
+        TextView TextView = temp.get(randomizer.nextInt(temp.size()));
+        int indexOf = views.indexOf(TextView);
         return views.get(indexOf);
     }
 
-    private void setImages(Integer questionAsSound, List<ImageView> views, int correctAnswerIndex) {
+    private void setImages(Integer questionAsSound, List<TextView> views, int correctAnswerIndex) {
         List<MayekCard> addedViews = new ArrayList<>();
         //correct answer
         MayekCard card = null;
@@ -247,7 +250,7 @@ public class ViewBuilder {
         }
         addedViews.add(card);
         for (int i = 0; i < views.size(); i++) {
-            ImageView view = views.get(i);
+            TextView view = views.get(i);
             //the tags set below are cached
             view.setTag(null);
             if (i == correctAnswerIndex) {
@@ -264,7 +267,7 @@ public class ViewBuilder {
         }
     }
 
-    private void changeColor(int res, ImageView view) {
+    private void changeColor(int res, TextView view) {
         BitmapFactory.Options o = new BitmapFactory.Options();
         o.inMutable = true;
         Bitmap myBitmap = BitmapFactory.decodeResource(context.getResources(), res, o);
@@ -279,47 +282,49 @@ public class ViewBuilder {
         }
 
         myBitmap.setPixels(allpixels, 0, myBitmap.getWidth(), 0, 0, myBitmap.getWidth(), myBitmap.getHeight());
-
-        view.setImageBitmap(myBitmap);
+        //view.setBackground(new BitmapDrawable(context.getResources(), myBitmap));
+        view.setTypeface(MyFont.getInstance(context).getRathayek());
+        view.setText("q");
+        //view.setImageBitmap(myBitmap);
 
     }
 
     public void resetBackgroundColor(int viewIndex) {
-        List<ImageView> imageViews = null;
+        List<TextView> TextViews = null;
         if (viewIndex == 0) {
-            imageViews = QuestionViews.getViews2(view2);
+            TextViews = QuestionViews.getViews2(view2);
         } else if (viewIndex == 1) {
-            imageViews = QuestionViews.getViews3(view3);
+            TextViews = QuestionViews.getViews3(view3);
         } else if (viewIndex == 2) {
-            imageViews = QuestionViews.getViews4(view4);
+            TextViews = QuestionViews.getViews4(view4);
         } else if (viewIndex == 3) {
-            imageViews = QuestionViews.getViews5(view5);
+            TextViews = QuestionViews.getViews5(view5);
         } else if (viewIndex == 4) {
-            imageViews = QuestionViews.getViews6(view6);
+            TextViews = QuestionViews.getViews6(view6);
         } else if (viewIndex == 5) {
-            imageViews = QuestionViews.getViews7(view7);
+            TextViews = QuestionViews.getViews7(view7);
         } else if (viewIndex == 6) {
-            imageViews = QuestionViews.getViews8(view8);
+            TextViews = QuestionViews.getViews8(view8);
         } else if (viewIndex == 7) {
-            imageViews = QuestionViews.getViews9(view9);
+            TextViews = QuestionViews.getViews9(view9);
         } else if (viewIndex == 8) {
-            imageViews = QuestionViews.getViews16(view10);
+            TextViews = QuestionViews.getViews16(view10);
         } else if (viewIndex == 9) {
-            imageViews = QuestionViews.getViews16(view11);
+            TextViews = QuestionViews.getViews16(view11);
         } else if (viewIndex == 10) {
-            imageViews = QuestionViews.getViews16(view12);
+            TextViews = QuestionViews.getViews16(view12);
         } else if (viewIndex == 11) {
-            imageViews = QuestionViews.getViews16(view13);
+            TextViews = QuestionViews.getViews16(view13);
         } else if (viewIndex == 12) {
-            imageViews = QuestionViews.getViews16(view14);
+            TextViews = QuestionViews.getViews16(view14);
         } else if (viewIndex == 13) {
-            imageViews = QuestionViews.getViews16(view15);
+            TextViews = QuestionViews.getViews16(view15);
         } else if (viewIndex == 14) {
-            imageViews = QuestionViews.getViews16(view16);
+            TextViews = QuestionViews.getViews16(view16);
         }
 
-        for (ImageView imageView : imageViews) {
-            imageView.setBackgroundColor(Color.TRANSPARENT);
+        for (TextView TextView : TextViews) {
+            TextView.setBackgroundColor(Color.TRANSPARENT);
         }
     }
 

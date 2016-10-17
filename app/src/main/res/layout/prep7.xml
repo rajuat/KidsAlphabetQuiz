@@ -12,7 +12,7 @@
         android:orientation="vertical"
         android:layout_gravity="top|center_vertical"
         >
-        <ImageView
+        <TextView
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_margin="16dp"
@@ -20,7 +20,7 @@
             android:id="@+id/prep71"
             android:onClick="answered" />
 
-        <ImageView
+        <TextView
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_margin="16dp"
@@ -29,7 +29,7 @@
             android:onClick="answered"
             />
 
-        <ImageView
+        <TextView
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_margin="16dp"
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="88dp"
         android:layout_gravity="top|center_vertical">
-        <ImageView
+        <TextView
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_margin="16dp"
@@ -63,7 +63,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="top|center_vertical">
-        <ImageView
+        <TextView
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_margin="16dp"
@@ -72,7 +72,7 @@
             android:onClick="answered"
              />
 
-        <ImageView
+        <TextView
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_margin="16dp"
@@ -81,7 +81,7 @@
             android:onClick="answered"
             />
 
-        <ImageView
+        <TextView
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_margin="16dp"

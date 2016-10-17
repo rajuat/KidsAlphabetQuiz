@@ -29,6 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.MobileAds;
+import com.itservz.android.mayekplay.font.MyFont;
 import com.itservz.android.mayekplay.match.MatchActivity;
 import com.itservz.android.mayekplay.prep.PrepActivity;
 import com.itservz.android.mayekplay.quiz.QuizActivity;
@@ -100,8 +101,11 @@ public class MainActivity extends Activity {
             ((Button)findViewById(R.id.fab)).setText(" Start ");
             ((TextView) findViewById(R.id.title)).setText("Let's play Mayek :-)");
         } else {
-            ((Button)findViewById(R.id.fab)).setText("Hourase");
-            ((TextView) findViewById(R.id.title)).setText("Mayek sanase :-)");
+            Button fabButton = (Button) findViewById(R.id.fab);
+            fabButton.setText("Hourase");
+            TextView titleText = (TextView) findViewById(R.id.title);
+            titleText.setTypeface(MyFont.getInstance(getApplicationContext()).getRathayek());
+            titleText.setText("q w r a");
         }
     }
 

@@ -15,7 +15,7 @@
         android:orientation="vertical"
         android:padding="8dp">
 
-        <ImageView
+        <TextView
             android:id="@+id/prep161"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -24,7 +24,7 @@
             android:onClick="answered"
             android:scaleType="fitXY" />
 
-        <ImageView
+        <TextView
             android:id="@+id/prep162"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -33,7 +33,7 @@
             android:onClick="answered"
             android:scaleType="fitXY" />
 
-        <ImageView
+        <TextView
             android:id="@+id/prep163"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -44,7 +44,7 @@
 
             />
 
-        <ImageView
+        <TextView
             android:id="@+id/prep164"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -65,7 +65,7 @@
         android:orientation="vertical"
         android:padding="8dp">
 
-        <ImageView
+        <TextView
             android:id="@+id/prep165"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -77,7 +77,7 @@
 
             />
 
-        <ImageView
+        <TextView
             android:id="@+id/prep166"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -88,7 +88,7 @@
 
             />
 
-        <ImageView
+        <TextView
             android:id="@+id/prep167"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -99,7 +99,7 @@
 
             />
 
-        <ImageView
+        <TextView
             android:id="@+id/prep168"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -120,7 +120,7 @@
         android:orientation="vertical"
         android:padding="8dp">
 
-        <ImageView
+        <TextView
             android:id="@+id/prep169"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -131,7 +131,7 @@
 
             />
 
-        <ImageView
+        <TextView
             android:id="@+id/prep1610"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -142,7 +142,7 @@
 
             />
 
-        <ImageView
+        <TextView
             android:id="@+id/prep1611"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -153,7 +153,7 @@
 
             />
 
-        <ImageView
+        <TextView
             android:id="@+id/prep1612"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -174,7 +174,7 @@
         android:orientation="vertical"
         android:padding="8dp">
 
-        <ImageView
+        <TextView
             android:id="@+id/prep1613"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -185,7 +185,7 @@
 
             />
 
-        <ImageView
+        <TextView
             android:id="@+id/prep1614"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -196,7 +196,7 @@
 
             />
 
-        <ImageView
+        <TextView
             android:id="@+id/prep1615"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -207,7 +207,7 @@
 
             />
 
-        <ImageView
+        <TextView
             android:id="@+id/prep1616"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
