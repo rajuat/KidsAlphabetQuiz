@@ -26,6 +26,7 @@ public class PrepActivity extends QuizPrepBaseActivity {
                 .build();
         adView.loadAd(adRequest);
         initialize(savedInstanceState, false);
+        setProgress();
     }
 
     public void answered(final View view) {

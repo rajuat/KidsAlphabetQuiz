@@ -3,36 +3,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_centerInParent="true">
+    android:layout_centerInParent="true"
+    android:gravity="center">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="center">
-        <TextView
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep61"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
             android:onClick="answered" />
 
-        <TextView
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep62"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
             android:onClick="answered"
             />
 
-        <TextView
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep63"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
             android:onClick="answered"
             />
 
@@ -42,32 +49,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="16dp"
         android:layout_gravity="center_horizontal">
-        <TextView
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep64"
-            android:onClick="answered"
-             />
-
-        <TextView
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_margin="16dp"
-            android:scaleType="fitXY"
-            android:id="@+id/prep65"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
             android:onClick="answered"
             />
 
-        <TextView
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:scaleType="fitXY"
+            android:id="@+id/prep65"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:onClick="answered"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep66"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
             android:onClick="answered"
             />
 

@@ -2,34 +2,41 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:gravity="center">
 
-    <TextView
-        android:layout_width="56dp"
-        android:layout_height="56dp"
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:src="@drawable/a"
         android:id="@+id/prep31"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
         android:onClick="answered"
         android:layout_below="@+id/prep33"
         android:layout_toRightOf="@+id/prep33"
         android:layout_toEndOf="@+id/prep33" />
 
-    <TextView
-        android:layout_width="56dp"
-        android:layout_height="56dp"
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:id="@+id/prep32"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
         android:onClick="answered"
         android:layout_below="@+id/prep33"
         android:layout_toLeftOf="@+id/prep33"
         android:layout_toStartOf="@+id/prep33" />
 
-    <TextView
-        android:layout_width="56dp"
-        android:layout_height="56dp"
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:id="@+id/prep33"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
         android:onClick="answered"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />

@@ -9,32 +9,36 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="top|center_vertical"
-        >
-        <TextView
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep91"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
             android:onClick="answered" />
 
-        <TextView
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep92"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
             android:onClick="answered"
             />
 
-        <TextView
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep93"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
             android:onClick="answered"
             />
 
@@ -43,67 +47,75 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="top">
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep94"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
             android:onClick="answered"
             android:layout_gravity="top" />
 
-        <TextView
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep95"
             android:onClick="answered"
             />
 
-        <TextView
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep96"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
             android:onClick="answered"
-             />
+            />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="top|center_vertical">
-        <TextView
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep97"
-            android:onClick="answered"
-             />
-
-        <TextView
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_margin="16dp"
-            android:scaleType="fitXY"
-            android:id="@+id/prep98"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
             android:onClick="answered"
             />
 
-        <TextView
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:scaleType="fitXY"
+            android:id="@+id/prep98"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:onClick="answered"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep99"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
             android:onClick="answered"
             />
 

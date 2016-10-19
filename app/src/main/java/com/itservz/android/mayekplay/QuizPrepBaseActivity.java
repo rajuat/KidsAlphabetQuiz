@@ -97,9 +97,9 @@ public class QuizPrepBaseActivity extends Activity implements View.OnClickListen
         scoreTextView = (TextView) findViewById(R.id.score_value);
         questionTitleTextView = (TextView) findViewById(R.id.question_title);
         if (abc) {
-            questionTitleTextView.setText(Alphabets.getInstance().getCardMap().get(questionAsSound).getTitle());
+            questionTitleTextView.setText("Choose " + Alphabets.getInstance().getCardMap().get(questionAsSound).getTitle());
         } else {
-            questionTitleTextView.setText(Mayeks.getInstance().getCardMap().get(questionAsSound).getTitle());
+            questionTitleTextView.setText("Choose " + Mayeks.getInstance().getCardMap().get(questionAsSound).getTitle());
         }
     }
 
@@ -109,9 +109,9 @@ public class QuizPrepBaseActivity extends Activity implements View.OnClickListen
             viewBuilder.build(viewFlipper.getDisplayedChild() + 1, questionAsSound);
             mayekSoundPoolPlayer.playShortResource(questionAsSound);
             if (abc) {
-                questionTitleTextView.setText(Alphabets.getInstance().getCardMap().get(questionAsSound).getTitle());
+                questionTitleTextView.setText("Choose " + Alphabets.getInstance().getCardMap().get(questionAsSound).getTitle());
             } else {
-                questionTitleTextView.setText(Mayeks.getInstance().getCardMap().get(questionAsSound).getTitle());
+                questionTitleTextView.setText("Choose " + Mayeks.getInstance().getCardMap().get(questionAsSound).getTitle());
             }
 
             viewFlipper.showNext();
@@ -177,11 +177,10 @@ public class QuizPrepBaseActivity extends Activity implements View.OnClickListen
     }
 
     protected void setProgress() {
-
-        int completed = result.getNoOfCorrectAnswers() + result.getAccumulatedWrongAttempts();
+        int completed = result.getNoOfCorrectAnswers() + result.getAccumulatedWrongAttempts() + 1;
         result.setTotalNoOfQuestions(viewBuilder.getTotalNoOfViews() + result.getAccumulatedWrongAttempts());
         TextView progress = (TextView) findViewById(R.id.progress_quiz);
-        progress.setText("" + completed + " / " + result.getTotalNoOfQuestions());
+        progress.setText("Question " + completed + " of " + result.getTotalNoOfQuestions());
     }
 
     /*public void shareOnFacebook(View view){

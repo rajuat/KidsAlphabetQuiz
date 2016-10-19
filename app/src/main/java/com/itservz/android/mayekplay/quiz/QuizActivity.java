@@ -1,11 +1,13 @@
 package com.itservz.android.mayekplay.quiz;
 
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 
 import com.facebook.FacebookSdk;
 import com.google.android.gms.ads.AdRequest;
@@ -31,6 +33,7 @@ public class QuizActivity extends QuizPrepBaseActivity {
                 .build();
         adView.loadAd(adRequest);
         initialize(savedInstanceState, false);
+        setProgress();
     }
 
     public void answered(final View view) {
@@ -40,7 +43,8 @@ public class QuizActivity extends QuizPrepBaseActivity {
 
             new CountDownTimer(700, 700) {
                 public void onTick(long millisUntilFinished) {
-                    view.setBackgroundColor(Color.GREEN);
+                    //view.setBackgroundColor(Color.GREEN);
+                    ((ImageView) view).setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
                 }
 
                 public void onFinish() {
@@ -51,13 +55,15 @@ public class QuizActivity extends QuizPrepBaseActivity {
                     scoreTextView.setText(""+result.getScore());
                     generateNextQuestion();
                     setProgress();
-                    view.setBackgroundColor(Color.TRANSPARENT);
+                    ((ImageView) view).clearColorFilter();
+                    //view.setBackgroundColor(Color.TRANSPARENT);
                 }
             }.start();
         } else {
             new CountDownTimer(700, 700) {
                 public void onTick(long millisUntilFinished) {
-                    view.setBackgroundColor(Color.RED);
+                    //view.setBackgroundColor(Color.RED);
+                    ((ImageView) view).setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
                 }
 
                 public void onFinish() {
@@ -68,7 +74,8 @@ public class QuizActivity extends QuizPrepBaseActivity {
                     scoreTextView.setText(""+(result.getScore()));
                     viewBuilder.build(viewFlipper.getDisplayedChild(), questionAsSound);
                     setProgress();
-                    view.setBackgroundColor(Color.TRANSPARENT);
+                    ((ImageView) view).clearColorFilter();
+                    //view.setBackgroundColor(Color.TRANSPARENT);
                 }
             }.start();
         }
