@@ -104,8 +104,7 @@ public class MainActivity extends Activity {
             Button fabButton = (Button) findViewById(R.id.fab);
             fabButton.setText("Hourase");
             TextView titleText = (TextView) findViewById(R.id.title);
-            titleText.setTypeface(MyFont.getInstance(getApplicationContext()).getRathayek());
-            titleText.setText("q w r a");
+            titleText.setText("Mayek sanasi :-)");
         }
     }
 

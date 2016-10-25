@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="24dp"
-    android:background="#AAAAAAAA"
+    android:background="#FFE082"
     android:orientation="vertical"
     android:padding="24dp">
 
@@ -11,24 +11,32 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="#4CAF50"
+        android:elevation="6dp"
         android:gravity="center">
 
         <TextView
             android:id="@+id/match_result"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:ellipsize="none"
             android:maxLines="100"
             android:scrollHorizontally="false"
-            android:textColor="#ffffff"
+            android:textColor="#F0F4C3"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:gravity="center" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:background="#8BC34A"
+            android:elevation="6dp"
             android:gravity="center_vertical|center_horizontal">
 
             <Button
@@ -36,30 +44,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
+                android:layout_margin="8dp"
                 android:padding="4dp"
                 android:layout_weight=".50"
-                android:background="@drawable/rounded_button"
+                android:background="#4CAF50"
                 android:text="Amuka sanage"
-                android:textColor="#ffffff"
+                android:textColor="#F0F4C3"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:elevation="6dp"/>
 
             <Button
                 android:id="@+id/match_dailog_close"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
+                android:layout_margin="8dp"
                 android:padding="4dp"
                 android:layout_weight=".50"
-                android:background="@drawable/rounded_button"
+                android:background="#4CAF50"
                 android:text="Atopa sanage"
-                android:textColor="#ffffff"
+                android:textColor="#F0F4C3"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:elevation="6dp" />
 
         </LinearLayout>
     </LinearLayout>

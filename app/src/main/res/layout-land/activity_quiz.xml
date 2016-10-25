@@ -16,6 +16,7 @@
             android:id="@+id/adView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
             ads:adSize="BANNER"
             ads:adUnitId="@string/banner_ad_unit_id_quiz"></com.google.android.gms.ads.AdView>
 
@@ -36,6 +37,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight=".36"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
         android:orientation="vertical">
 
         <TextView
@@ -170,7 +172,6 @@
                 android:layout_height="64dp"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
-
                 android:src="@drawable/ic_hearing_black_48dp" />
 
         </LinearLayout>

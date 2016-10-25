@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/bgbl"
+    android:background="#FFE082"
     android:orientation="horizontal"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -14,43 +14,8 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight=".80"
+        android:elevation="6dp"
         android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <ViewStub
-                android:id="@+id/stub_prep4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inflatedId="@+id/inflate_stub_prep4"
-                android:layout="@layout/prep4" />
-
-            <ViewStub
-                android:id="@+id/stub_prep6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inflatedId="@+id/inflate_stub_prep6"
-                android:layout="@layout/prep6" />
-
-            <ViewStub
-                android:id="@+id/stub_prep8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inflatedId="@+id/inflate_stub_prep8"
-                android:layout="@layout/prep8" />
-
-            <ViewStub
-                android:id="@+id/stub_prep16"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inflatedId="@+id/inflate_stub_prep16"
-                android:layout="@layout/prep16" />
-
-        </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -61,12 +26,55 @@
                 android:id="@+id/adView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_alignParentBottom="true"
                 ads:adSize="BANNER"
                 ads:adUnitId="@string/banner_ad_unit_id_match"
-                android:layout_gravity="bottom">
+                >
             </com.google.android.gms.ads.AdView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#8BC34A"
+            android:layout_weight=".85"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp"
+            android:layout_marginRight="16dp"
+            android:elevation="6dp"
+            android:gravity="center">
+
+            <ViewStub
+                android:id="@+id/stub_prep4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="6dp"
+                android:inflatedId="@+id/inflate_stub_prep4"
+                android:layout="@layout/prep4" />
+
+            <ViewStub
+                android:id="@+id/stub_prep6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="6dp"
+                android:inflatedId="@+id/inflate_stub_prep6"
+                android:layout="@layout/prep6" />
+
+            <ViewStub
+                android:id="@+id/stub_prep8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="6dp"
+                android:inflatedId="@+id/inflate_stub_prep8"
+                android:layout="@layout/prep8" />
+
+            <ViewStub
+                android:id="@+id/stub_prep16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="6dp"
+                android:inflatedId="@+id/inflate_stub_prep16"
+                android:layout="@layout/prep16" />
 
         </LinearLayout>
 
@@ -76,6 +84,10 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight=".15"
+        android:background="#4CAF50"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:elevation="6dp"
         android:orientation="vertical">
 
         <TextView
@@ -86,7 +98,8 @@
             android:id="@+id/seek_bar_difficult"
             android:textColor="#BA4A00"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:gravity="center" />
 
         <SeekBar
             android:id="@+id/opacity_seek"
@@ -94,9 +107,10 @@
             android:layout_height="0dp"
             android:rotation="270"
             android:layout_weight=".70"
-            />
+            android:focusable="false"
+            android:layout_gravity="center" />
 
-        <EditText
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight=".15"
@@ -104,7 +118,8 @@
             android:id="@+id/seek_bar_easy"
             android:textColor="#BA4A00"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:gravity="center" />
     </LinearLayout>
 
 
