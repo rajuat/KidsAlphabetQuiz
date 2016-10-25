@@ -11,8 +11,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep91"
@@ -21,8 +21,8 @@
             android:onClick="answered" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep92"
@@ -32,8 +32,8 @@
             />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep93"
@@ -50,8 +50,8 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep94"
@@ -61,8 +61,8 @@
             android:layout_gravity="top" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep95"
@@ -70,8 +70,8 @@
             />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep96"
@@ -87,8 +87,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep97"
@@ -98,8 +98,8 @@
             />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep98"
@@ -109,8 +109,8 @@
             />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep99"

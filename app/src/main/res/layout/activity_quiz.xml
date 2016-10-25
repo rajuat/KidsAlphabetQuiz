@@ -8,9 +8,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight=".12">
-
+        android:layout_height="wrap_content"
+        >
         <com.google.android.gms.ads.AdView
             android:id="@+id/adView"
             android:layout_width="wrap_content"
@@ -27,15 +26,19 @@
         android:textColor="#B71C1C"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:paddingLeft="@dimen/activity_vertical_margin" />
+        android:gravity="center" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight=".72"
         android:elevation="6dp"
         android:background="#F06292"
-        android:layout_margin="@dimen/activity_vertical_margin">
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        >
 
 
         <ViewFlipper
@@ -50,7 +53,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="16dp" />
+        android:layout_height="4dp" />
 
     <include layout="@layout/quiz_counters" />
 

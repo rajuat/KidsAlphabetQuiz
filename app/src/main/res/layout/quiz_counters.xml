@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingBottom="16dp"
+    android:layout_weight=".20"
+    android:paddingBottom="8dp"
     android:paddingRight="16dp"
     android:paddingLeft="16dp"
     android:orientation="vertical">
@@ -12,13 +13,13 @@
         android:layout_height="wrap_content"
         android:background="#E91E63"
         android:elevation="6dp"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/question_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="DUMMY"
             android:textColor="@color/light_red"
@@ -27,13 +28,14 @@
             android:paddingRight="@dimen/activity_vertical_margin"
             android:paddingLeft="@dimen/activity_vertical_margin"
             android:layout_gravity="center"
-            android:layout_weight="1"
+            android:layout_weight=".80"
             />
 
         <ImageView
             android:id="@+id/sound_btn"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".20"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
             android:paddingRight="@dimen/activity_vertical_margin"
@@ -43,7 +45,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="16dp"
+        android:layout_height="8dp"
         />
 
     <LinearLayout
@@ -51,8 +53,8 @@
         android:layout_height="wrap_content"
         android:background="#D81B60"
         android:elevation="6dp"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
         android:orientation="horizontal">
 
         <TextView
@@ -122,7 +124,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="16dp"
+        android:layout_height="8dp"
         />
 
 </LinearLayout>

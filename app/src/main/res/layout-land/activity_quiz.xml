@@ -172,7 +172,8 @@
                 android:layout_height="64dp"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
-                android:src="@drawable/ic_hearing_black_48dp" />
+                android:src="@drawable/ic_hearing_black_48dp"
+                android:layout_gravity="center" />
 
         </LinearLayout>
 

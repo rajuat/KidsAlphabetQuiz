@@ -6,8 +6,8 @@
     android:gravity="center">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         android:layout_margin="16dp"
         android:src="@drawable/a"
         android:id="@+id/prep31"
@@ -19,8 +19,8 @@
         android:layout_toEndOf="@+id/prep33" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         android:layout_margin="16dp"
         android:id="@+id/prep32"
         android:background="?attr/selectableItemBackgroundBorderless"
@@ -31,8 +31,8 @@
         android:layout_toStartOf="@+id/prep33" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         android:layout_margin="16dp"
         android:id="@+id/prep33"
         android:background="?attr/selectableItemBackgroundBorderless"

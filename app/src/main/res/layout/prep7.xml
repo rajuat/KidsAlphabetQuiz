@@ -11,8 +11,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep71"
@@ -21,8 +21,8 @@
             android:onClick="answered" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep72"
@@ -32,8 +32,8 @@
             />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep73"
@@ -49,8 +49,8 @@
         android:layout_height="wrap_content"
         >
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep74"
@@ -65,8 +65,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep75"
@@ -76,8 +76,8 @@
             />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep76"
@@ -87,8 +87,8 @@
             />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
             android:id="@+id/prep77"

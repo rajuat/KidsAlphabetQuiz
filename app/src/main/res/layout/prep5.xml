@@ -1,64 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
         android:id="@+id/prep51"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:clickable="true"
-        android:onClick="answered"
-        android:layout_below="@+id/prep53"
-        android:layout_toRightOf="@+id/prep53"
-        android:layout_toEndOf="@+id/prep53" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         android:layout_margin="16dp"
-        android:id="@+id/prep52"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:clickable="true"
         android:onClick="answered"
-        android:layout_below="@+id/prep51"
-        android:layout_toLeftOf="@+id/prep51"
-        android:layout_toStartOf="@+id/prep51" />
+        android:src="@drawable/a"
+        android:layout_gravity="center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/prep52"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginRight="16dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:onClick="answered"
+            android:src="@drawable/a"
+            android:layout_gravity="left" />
+
+        <ImageView
+            android:id="@+id/prep53"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:onClick="answered"
+            android:src="@drawable/a"
+            android:layout_gravity="center" />
+
+        <ImageView
+            android:id="@+id/prep54"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginLeft="16dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:onClick="answered"
+            android:src="@drawable/a"
+            android:layout_gravity="right" />
+
+    </LinearLayout>
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:id="@+id/prep53"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:clickable="true"
-        android:onClick="answered"
-        android:layout_centerHorizontal="true" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/prep54"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:clickable="true"
-        android:onClick="answered"
-        android:layout_alignTop="@+id/prep55"
-        android:layout_toLeftOf="@+id/prep55"
-        android:layout_toStartOf="@+id/prep55" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
         android:id="@+id/prep55"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_margin="16dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:clickable="true"
         android:onClick="answered"
-        android:layout_below="@+id/prep53"
-        android:layout_toLeftOf="@+id/prep51"
-        android:layout_toStartOf="@+id/prep51" />
+        android:src="@drawable/a"
+        android:layout_gravity="center" />
 
-</RelativeLayout>
+</LinearLayout>
