@@ -58,7 +58,8 @@
             android:background="#D81B60"
             android:paddingTop="8dp"
             android:elevation="6dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
             <TextView
                 android:id="@+id/score_label"
@@ -89,7 +90,8 @@
             android:layout_weight=".18"
             android:background="#D81B60"
             android:elevation="6dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
             <TextView
                 android:id="@+id/correct_answers_label"
@@ -119,7 +121,8 @@
             android:layout_weight=".18"
             android:background="#D81B60"
             android:elevation="6dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
             <TextView
                 android:id="@+id/wrong_attempts_label"
@@ -156,20 +159,21 @@
 
             <TextView
                 android:id="@+id/question_title"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textColor="#ffffff"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:text="DUMMY"
-                android:layout_weight="1"
+                android:layout_weight=".75"
                 android:layout_gravity="center"
                 android:paddingLeft="8dp"/>
 
             <ImageView
                 android:id="@+id/sound_btn"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".25"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_hearing_black_48dp"

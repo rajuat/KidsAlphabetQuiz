@@ -1,23 +1,12 @@
 <resources>
     <string name="app_name">Mayek Play</string>
     <string name="fb_app_name">Facebook login</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="time_pass">Time pass</string>
     <string name="visual">2 mins mayek</string>
     <string name="quiz">Quiz</string>
     <string name="memory_match">Memory match</string>
     <string name="action_settings">Settings</string>
-    <string name="section_format">Hello World from section: %1$d</string>
-    <string name="title_activity_ad_mob">AdMobActivity</string>
-    <string name="hello_world">Hello world!</string>
     <string name="memory_match_difficulty">Level</string>
-
-    <string name="mayek">a s q w ø ষ স শ ছ F</string>
-
-
-
-
 
     <string name="facebook_app_id_new">1725961954332201</string>
     <string name="facebook_app_id">1782121292033969</string>

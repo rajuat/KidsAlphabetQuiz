@@ -184,11 +184,12 @@ public class MainActivity extends Activity {
         } else if (view.getId() == R.id.goToVisual) {
             if(abc){
                 Toast.makeText(this, "Choose KOK SAM LAI option to use this.", Toast.LENGTH_SHORT).show();
+            } else {
+                hideMenu();
+                optionVisible = false;
+                Intent intent = new Intent(getBaseContext(), VisualActivity.class);
+                startActivity(intent);
             }
-            hideMenu();
-            optionVisible = false;
-            Intent intent = new Intent(getBaseContext(), VisualActivity.class);
-            startActivity(intent);
         } else if (view.getId() == R.id.goToPrep) {
             hideMenu();
             optionVisible = false;

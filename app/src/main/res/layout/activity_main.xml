@@ -13,7 +13,7 @@
         android:layout_weight=".40"
         android:gravity="center_horizontal"
         android:keepScreenOn="true"
-        android:text="a s q w Mayek sanasi :-)"
+        android:text="Mayek sanasi :-)"
         android:textColor="#ffffff"
         android:textSize="50sp"
         android:textStyle="bold" />
@@ -50,7 +50,7 @@
                 android:background="@drawable/rounded_button"
                 android:baselineAligned="false"
                 android:onClick="click"
-                android:text="@string/mayek"
+                android:text="Hourase"
                 android:textColor="#ffffff" />
 
             <Button

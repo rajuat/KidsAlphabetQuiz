@@ -12,6 +12,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,19 +65,13 @@ public class ViewBuilder {
     private float imageCorner;
     private int imageSize;
 
-    public ViewBuilder(boolean abc) {
-        views = new ArrayList<>();
-        askedQuestions = new ArrayList<>();
-        isABC = abc;
-    }
-
     public ViewBuilder(boolean abc, Context context) {
         views = new ArrayList<>();
         askedQuestions = new ArrayList<>();
         isABC = abc;
         this.context = context;
         this.colorsFactory = ColorsFactory.getInstance(context);
-        imageCorner = context.getResources().getDisplayMetrics().density * 8;
+        imageCorner = context.getResources().getDisplayMetrics().density * 10;
         imageSize = (int) (context.getResources().getDisplayMetrics().density * 64);
     }
 
@@ -229,13 +224,21 @@ public class ViewBuilder {
             }
 
             ImageView match1 = randomViewFromRest(views, addedViews);
-            match1.setBackgroundResource(res);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                match1.setBackground( new BitmapDrawable(context.getResources(), getRoundedBitmap(res)));
+            } else {
+                match1.setBackgroundResource(res);
+            }
             match1.setTag(res);
             match1.setImageResource(R.drawable.questionmark);
             addedViews.add(match1);
 
             ImageView match2 = randomViewFromRest(views, addedViews);
-            match2.setBackgroundResource(res);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                match2.setBackground( new BitmapDrawable(context.getResources(), getRoundedBitmap(res)));
+            } else {
+                match2.setBackgroundResource(res);
+            }
             match2.setTag(res);
             match2.setImageResource(R.drawable.questionmark);
             addedViews.add(match2);
@@ -269,7 +272,7 @@ public class ViewBuilder {
                 if(isABC)
                     view.setImageResource(card.getRes());
                 else
-                    changeColor(card.getRes(), view);
+                    view.setImageBitmap(getRoundedBitmap(card.getRes()));
                 view.setTag(QuizPrepBaseActivity.CORRECT_ANSWER);
             } else {
                 //random image buttons
@@ -277,13 +280,13 @@ public class ViewBuilder {
                 if(isABC)
                     view.setImageResource(uniqueRandomCard.getRes());
                 else
-                    changeColor(uniqueRandomCard.getRes(), view);
+                    view.setImageBitmap(getRoundedBitmap(uniqueRandomCard.getRes()));
                 addedViews.add(uniqueRandomCard);
             }
         }
     }
 
-    private void changeColor(int res, ImageView view) {
+    private Bitmap getRoundedBitmap(int res) {
         CardColor cardColor = colorsFactory.getRandomPokerColors();
         BitmapFactory.Options o = new BitmapFactory.Options();
         o.inMutable = true;
@@ -307,7 +310,7 @@ public class ViewBuilder {
         mpaint.setAntiAlias(true);
         mpaint.setShader(new BitmapShader(myBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
         canvas.drawRoundRect((new RectF(0, 0, imageSize, imageSize)), imageCorner, imageCorner, mpaint);
-        view.setImageBitmap(imageRounded);
+        return imageRounded;
 
     }
 

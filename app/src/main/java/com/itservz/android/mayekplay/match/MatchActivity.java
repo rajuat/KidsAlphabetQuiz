@@ -54,7 +54,7 @@ public class MatchActivity extends Activity {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         abc = prefs.getBoolean(MainActivity.ABC, false);
 
-        viewBuilder = new ViewBuilder(abc);
+        viewBuilder = new ViewBuilder(abc, getApplicationContext());
 
         viewStub6 = ((ViewStub) findViewById(R.id.stub_prep6)).inflate();
         viewBuilder.buildMatch(viewStub6, 6);
