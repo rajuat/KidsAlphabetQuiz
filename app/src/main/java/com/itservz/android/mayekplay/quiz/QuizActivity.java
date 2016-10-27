@@ -29,7 +29,7 @@ public class QuizActivity extends QuizPrepBaseActivity {
 
         AdView adView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice("A0A3D2227CBAA74DAC3C250E4861EED3")
+                //.addTestDevice("A0A3D2227CBAA74DAC3C250E4861EED3")
                 .build();
         adView.loadAd(adRequest);
         initialize(savedInstanceState, false);

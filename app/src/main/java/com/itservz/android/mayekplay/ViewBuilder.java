@@ -224,7 +224,7 @@ public class ViewBuilder {
             }
 
             ImageView match1 = randomViewFromRest(views, addedViews);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            if (!isABC && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                 match1.setBackground( new BitmapDrawable(context.getResources(), getRoundedBitmap(res)));
             } else {
                 match1.setBackgroundResource(res);
@@ -234,7 +234,7 @@ public class ViewBuilder {
             addedViews.add(match1);
 
             ImageView match2 = randomViewFromRest(views, addedViews);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            if (!isABC && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                 match2.setBackground( new BitmapDrawable(context.getResources(), getRoundedBitmap(res)));
             } else {
                 match2.setBackgroundResource(res);
