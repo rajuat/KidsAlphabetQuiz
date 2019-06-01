@@ -6,8 +6,6 @@ import android.os.CountDownTimer;
 import android.view.View;
 import android.view.Window;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.itservz.android.mayekplay.QuizPrepBaseActivity;
 import com.itservz.android.mayekplay.R;
 
@@ -19,12 +17,6 @@ public class PrepActivity extends QuizPrepBaseActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_quiz);
-
-        AdView adView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder()
-                //.addTestDevice("A0A3D2227CBAA74DAC3C250E4861EED3")
-                .build();
-        adView.loadAd(adRequest);
         initialize(savedInstanceState, false);
         setProgress();
     }

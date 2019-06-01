@@ -19,8 +19,6 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.itservz.android.mayekplay.MainActivity;
 import com.itservz.android.mayekplay.R;
 import com.itservz.android.mayekplay.ViewBuilder;
@@ -44,12 +42,6 @@ public class MatchActivity extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_match);
-
-        AdView adView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder()
-                //.addTestDevice("A0A3D2227CBAA74DAC3C250E4861EED3")
-                .build();
-        adView.loadAd(adRequest);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         abc = prefs.getBoolean(MainActivity.ABC, false);

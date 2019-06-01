@@ -183,7 +183,5 @@ public class QuizPrepBaseActivity extends Activity implements View.OnClickListen
         progress.setText("Question " + completed + " of " + result.getTotalNoOfQuestions());
     }
 
-    /*public void shareOnFacebook(View view){
-        FacebookHelper.shares(getApplicationContext(), currentView);
-    }*/
+
 }

@@ -14,9 +14,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.support.v7.widget.AppCompatRadioButton;
 import android.view.View;
-import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -28,8 +26,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.MobileAds;
-import com.itservz.android.mayekplay.font.MyFont;
 import com.itservz.android.mayekplay.match.MatchActivity;
 import com.itservz.android.mayekplay.prep.PrepActivity;
 import com.itservz.android.mayekplay.quiz.QuizActivity;
@@ -66,8 +62,6 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544~3347511713"); //testads
-        //MobileAds.initialize(getApplicationContext(), "ca-app-pub-7027483312186624~2667460990");
         visualShow = AnimationUtils.loadAnimation(getApplication(), R.anim.visual_show);
         visualHide = AnimationUtils.loadAnimation(getApplication(), R.anim.visual_hide);
 
